@@ -1,2 +1,1 @@
-# Digital Sampling DIY Edition
 
