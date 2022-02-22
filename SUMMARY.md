@@ -1,3 +1,3 @@
 # Table of contents
 
-* [Digital Sampling DIY Edition](README.md)
+* [Digital Sampling DIY Edition](digitalsamplingdiy.md)
