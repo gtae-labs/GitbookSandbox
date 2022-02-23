@@ -2,7 +2,7 @@
 
 ## Objective
 
-The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to computer-based data acquisition systems. Using a digital data acquisition (DAQ) system to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in sampling, including the Nyquist limit and aliasing. You will also use a DAQ to record and analyze time-dependent signals from a setup of your own choosing.
+The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. Using DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in sampling, including the Nyquist limit and aliasing. You will also use a DAQ to record and analyze time-dependent signals from a setup of your own choosing.
 
 ## Background
 
