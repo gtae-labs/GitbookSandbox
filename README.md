@@ -2,7 +2,7 @@
 
 ## Objective
 
-The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. Using DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in sampling, including the Nyquist limit and aliasing. You will also use a DAQ to record and analyze time-dependent signals from a setup of your own choosing.
+The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. Using DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in: sampling, including the Nyquist limit and aliasing; filtering and its use for noise reduction; and digitization errors. You will also use a DAQ to record and analyze time-dependent signals from a situation of your own choosing.
 
 ## Background
 
@@ -40,13 +40,13 @@ $$
 
 (3)
 
-where _nf_ represents the frequency of the $$n^{th}$$ mode (_n_=1 for the fundamental, _n_=2 for the first harmonic, etc.), $$a_0$$ represents the steady component of the waveform, and the $$a_n$$, \_\_$$b_n$$ are the harmonic coefficients (or amplitudes) of each mode. The steady amplitude, $$a_0$$, is often called the DC component of the waveform, in reference to classical electrical power systems, which are either **D**irect **C**urrent (steady) or **A**lternating **C**urrent (sinusoidal with a zero average).
+where _nf_ represents the frequency of the $$n^{th}$$ mode (_n_=1 for the fundamental, _n_=2 for the first harmonic, etc.), $$a_0$$ represents the steady component of the waveform, and the $$a_n$$, $$b_n$$ are the harmonic coefficients (or amplitudes) of each mode. The steady amplitude, $$a_0$$, is often called the DC component of the waveform, in reference to classical electrical power systems, which are either **D**irect **C**urrent (steady) or **A**lternating **C**urrent (sinusoidal with a zero average).
 
 ![](https://lh4.googleusercontent.com/o3qZr2lYi6rcjH7sJeKmBTw\_2UWN9lMQPjXd0QjSEXS3SLgvAuAg4XScFAJLa9WeW\_SLi4NW6dDWGzjbesBhe1usVjkIKje9VN2jrXL4bmrJNbKhFGaSHHACqVBDqn8jDfR5yB7q)
 
 > **Figure 1.** A waveform composed of a fundamental mode (at 50 Hz) and its 9th harmonic (at 10 times the fundamental frequency, or 500 Hz). The waveform also has a DC, or time-averaged, component of 4 mV. Specifically, the signal (in millivolts) is 4+sin(100πt)+2sin(1000πt), or equivalently, based on cosines, 4+cos(100πt-π/2)+2cos(1000πt-π/2), which simply represents a phase shift of -π/2.
 
-For example, Figure 1 shows a simple waveform composed of two frequencies, a fundamental mode at 50 Hz and its 9th harmonic (at 500 Hz). Thus the complete waveform is repeated every 20 ms (=1/fundamental frequency =1/50 s). The waveform shown in the figure also has a DC component. In other words, the signal has a nonzero value when averaged over its period. In general, we can write the DC amplitude as
+For example, Figure 1 shows a simple waveform composed of two frequencies, a fundamental mode at 50 Hz and its 9th harmonic. Thus the complete waveform is repeated every 20 ms (period=1/fundamental frequency =1/50 s). The waveform shown in the figure also has a DC component. In other words, the signal has a nonzero value when averaged over its period. In general, we can write the DC amplitude as
 
 $$
 \large a_0=\frac{1}{T}\int_{-T/2}^{T/2}v(t)dt=f\int_{-T/2}^{T/2}v(t)dt
@@ -156,13 +156,13 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 ### Computer Data Acquisition System
 
-Data will be acquired with an board in a computer, utilizing a LabView™ interface. The computer data acquisition board, which measures the voltage of the input signal, essentially consists of a multiplexer, a sample-and-hold device, an analog-to-digital converter, a memory buffer, an interface to the computer’s memory, a master clock, and controller (see Figure 5).
+Data will be acquired with a standalone DAQ that communicates with your computer using a USB connection and using a LabView™ software interface. Each input signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an analog-to-digital converter, a memory buffer, a master clock, a controller, and an interface to a computer (see Figure 5).
 
 ![](https://lh6.googleusercontent.com/U-hs4modmMu5Svybah5ZD9I38X2ZhM46tt4bDme9UhWMNkWKW2aW5L9KXjTZZFWwgtc3hLgZHo2DrVPUw89786N8wG1tzRXbUxxAk3qwQ73PZo6WuoMxOKn-ypf2u-FVp2Fv-XlSSHtHsEIZDQ)
 
 > **Figure 5.** Schematic of multiplexed, sequential sampling, computer data acquisition board and its connection to the computer.
 
-The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. From this charge, the original voltage value connected to the S/H is determined, and the result is converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value (sometimes referred to as a “word” of data depends on the input voltage, the _voltage range_ of the ADC (the _minimum_ and _maximum_ voltages it reads, e.g., 0-5 V), and its digital dynamic range (number of “bits” = _N_). The relation between the digitizer output and the voltage input is given by
+The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. From this charge, the original voltage value connected to the S/H is determined, and the result is converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value (sometimes referred to as a “word” of data depends on the input voltage, the _voltage range_ of the ADC (the _minimum_ and _maximum_ voltages it reads, e.g., 0-5 V), and its digital dynamic range (based on the number of ADC “bits” = _N_). The relation between the digitizer output and the voltage input is given by
 
 $$
 \large output=\frac{input-minimum}{maximum-minimum}\times\left(2^N-1\right)
@@ -170,7 +170,7 @@ $$
 
 (12)
 
-where _output_ has to be an **integer value**. For example, consider a 2 V input into an ADC with a 0-10 V range, and an 8-bit digitizer ($$2^8$$possible values, or digital values of 0-255). The output of the ADC would be a digital value of 51. The digital result is then moved to the buffer memory on the board, and shifted to the computer memory, usually through the computer’s _direct memory access_ (DMA) system.
+where _output_ has to be an **integer value**. For example, consider a 2 V input into an ADC with a 0-10 V range, and an 8-bit digitizer ($$2^8$$possible values, or digital values of 0-255). The output of the ADC would be a digital value of 51. The digital result is then moved to the buffer memory, and communicated to the computer.
 
 Multiple signal inputs are recorded by using the MUX to cycle through each of the input channels at a rate that must be faster than the overall sampling rate (how often a given channel is read) times the number of input channels being read. In the sequential sampling system illustrated in Fig. 5 (and which is representative of the system you will be using), note that the channels are _not read at exactly the same time_. There is a time delay (**skew**) between when one channel and the next is read. The skew determined by the maximum switching and reading rates of the MUX, S/H and ADC. This is illustrated in Fig. 6. Simultaneous data acquisition systems, which have negligible skew, typically employ multiple, synchronized S/H systems just upstream of the MUX (see Fig. 7).
 
@@ -184,7 +184,7 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 
 In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the acquisition board, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
-You will also use an analog, electronic filter manufactured by Krohn-Hite. It actually contains two filters, which separately can be switched to be either low pass or high pass filters. The cutoff-frequency of each is also adjustable, using a combination of a dial and multiplier setting. You will be examining the effects of the filters on the following time-dependent signals:
+
 
 ## Procedure
 
