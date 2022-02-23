@@ -6,7 +6,7 @@ The primary objective of this experiment is to familiarize you with digital data
 
 ## Background
 
-Most experimental measurements involve the dimension of **time**. Experimental data is acquired over the course of some time, and during this time the actual physical parameter of interest (the _measurand_) may change with time. This could be due to a transient such as the stress induced in a material by a sudden impact, a periodic phenomena like the bending and twist of a helicopter blade due to flutter, or random or chaotic fluctuations, like the turbulent velocity in a wind tunnel. Even when the measurand is nominally constant in time, other parameters that influence the measurement may vary, for example drifts in the measurement device. Thus, the experimenter is often interested in measuring a variable that could be described by the general function (or _waveform_),
+Most experimental measurements involve the dimension of **time**. Experimental data is acquired over the course of some time, and during this time the actual physical parameter of interest (the _**measurand**_) may change. This could be due to a transient, such as the stress induced in a material by a sudden impact, a periodic phenomena, like the bending and twist of a helicopter blade due to flutter, or random or chaotic fluctuations, like the turbulent velocity in a wind tunnel. Even when the measurand is nominally constant in time, other parameters that influence the measurement may vary, for example drifts in the measurement device. Thus, the experimenter is often interested in measuring a variable that can be described by the general function (or _**waveform**_),
 
 $$
 \large v=v(t)
@@ -30,9 +30,9 @@ $$
 
 (2)
 
-where _A_ is the amplitude, $$\omega$$ is the circular frequency (e.g., rad/s), _f_ is the cyclic frequency (e.g., cycles/s, Hertz or $$s^{-1}$$), and $$\phi$$ is the phase, which represents the time-shift of the sine-wave from some reference time that defines _t_=0. Such a function is often denoted as a _simple harmonic_ waveform.
+where $$A$$ is the amplitude, $$\omega$$ is the circular frequency (e.g., rad/s), $$f$$is the cyclic frequency (e.g., cycles/s, Hertz or $$s^{-1}$$), and $$\phi$$ is the phase, which represents the time-shift of the sine-wave from some reference time that defines _t_=0. Such a function is often denoted as a _simple harmonic_ waveform.
 
-More general periodic waveforms, which repeat themselves with a period _T_ and thus have a frequency _f=1/T_, can be **written as a linear combination of simple harmonic** _**modes**_. There is the basic, _**fundamental**_ mode (with frequency _f_ ), and _**harmonics**_ of the fundamental mode, with integer multiples of its frequency (2_f_, 3_f_, …). For example, we could describe the vibrations of a tuning fork or the acoustic oscillations in a pipe this way. Mathematically, this linear combination of modes is expressed as a **Fourier series expansion**,
+More general periodic waveforms, which repeat themselves with a period _T_ and thus have a frequency $$f$$= 1_/T_, can be **written as a linear combination of simple harmonic** _**modes**_. There is the basic, _**fundamental**_ mode (with frequency$$f$$), and _**harmonics**_ of the fundamental mode, with integer multiples of its frequency (2$$f$$, 3$$f$$, …). For example, we could describe the vibrations of a tuning fork or the acoustic oscillations in a pipe this way. Mathematically, this linear combination of modes is expressed as a **Fourier series expansion**,
 
 $$
 \large v(t)=a_0+\sum_{n=1}^\infty\left[a_n\cos(2\pi nft)+b_n\sin(2\pi nft)\right]
@@ -40,7 +40,7 @@ $$
 
 (3)
 
-where _nf_ represents the frequency of the $$n^{th}$$ mode (_n_=1 for the fundamental, _n_=2 for the first harmonic, etc.), $$a_0$$ represents the steady component of the waveform, and the $$a_n$$, $$b_n$$ are the harmonic coefficients (or amplitudes) of each mode. The steady amplitude, $$a_0$$, is often called the DC component of the waveform, in reference to classical electrical power systems, which are either **D**irect **C**urrent (steady) or **A**lternating **C**urrent (sinusoidal with a zero average).
+where $$nf$$ represents the frequency of the $$n^{th}$$ mode ($$n$$=1 for the fundamental, $$n$$=2 for the first harmonic, etc.), $$a_0$$ represents the steady component of the waveform, and the $$a_n$$, $$b_n$$ are the harmonic coefficients (or amplitudes) of each mode. The steady amplitude, $$a_0$$, is often called the DC component of the waveform, in reference to classical electrical power systems, which are either **D**irect **C**urrent (steady) or **A**lternating **C**urrent (sinusoidal with a zero average).
 
 ![](https://lh4.googleusercontent.com/o3qZr2lYi6rcjH7sJeKmBTw\_2UWN9lMQPjXd0QjSEXS3SLgvAuAg4XScFAJLa9WeW\_SLi4NW6dDWGzjbesBhe1usVjkIKje9VN2jrXL4bmrJNbKhFGaSHHACqVBDqn8jDfR5yB7q)
 
@@ -70,7 +70,7 @@ $$
 
 (6)
 
-The power, _P_, contained in single mode is given by the square of the amplitude
+The power, $$P$$, contained in single mode is given by the square of the amplitude
 
 $$
 \large P(n)=a_{n}^{2}+b_{n}^{2}
@@ -126,7 +126,7 @@ in other words, they contain information at only one frequency (the DC function,
 
 > **Figure 4.** Fourier transforms of various functions (left and right pairs). The arrows represent impulse functions (i.e., delta functions), which extend infinitesimally along the x-axis, but have a integrated area corresponding to the height indicated by the arrow. The dashed regions indicate imaginary values.
 
-Instead of looking at the Fourier transform, we often are interested in the _**power spectrum**_ (or _**power spectral density,**_ **PSD**) of a waveform. This represents the amount of power or energy in a region between _f_ and _f_+d_f_. For real (noncomplex) functions $$v(t)$$, this is given by
+Instead of looking at the Fourier transform, we often are interested in the _**power spectrum**_ (or _**power spectral density,**_ **PSD**) of a waveform. This represents the amount of power or energy in a region between $$f$$ and $$f+df$$. For real (noncomplex) functions $$v(t)$$, this is given by
 
 $$
 \large PSD(f)=|V(f)|^2
@@ -134,7 +134,7 @@ $$
 
 (11)
 
-where it is sufficient to consider only 0<_f_<∞ since the PSD of a real function is symmetric about _f_=0.\*\*
+where it is sufficient to consider only 0<$$f$$<∞ since the PSD of a real function is symmetric about $$f$$=0.\*\*
 
 Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$sin c^2(f)$$ (also shown in Figure 4).
 
@@ -162,7 +162,7 @@ Data will be acquired with a standalone DAQ that communicates with your computer
 
 > **Figure 5.** Schematic of multiplexed, sequential sampling, computer data acquisition board and its connection to the computer.
 
-The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. From this charge, the original voltage value connected to the S/H is determined, and the result is converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value (sometimes referred to as a “word” of data depends on the input voltage, the _voltage range_ of the ADC (the _minimum_ and _maximum_ voltages it reads, e.g., 0-5 V), and its digital dynamic range (based on the number of ADC “bits” = _N_). The relation between the digitizer output and the voltage input is given by
+The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. From this charge, the original voltage value connected to the S/H is determined, and the result is converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value (sometimes referred to as a “word” of data depends on the input voltage, the _voltage range_ of the ADC (the _minimum_ and _maximum_ voltages it reads, e.g., 0-5 V), and its digital dynamic range (based on the number of ADC “bits” = $$N$$). The relation between the digitizer output and the voltage input is given by
 
 $$
 \large output=\frac{input-minimum}{maximum-minimum}\times\left(2^N-1\right)
@@ -182,7 +182,7 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 
 > **Figure 7.** Schematic of simultaneous sampling, computer data acquisition system.
 
-In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the acquisition board, the sampling rate$$(f_s)$$, and the number of samples recorded.
+In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
 
 
