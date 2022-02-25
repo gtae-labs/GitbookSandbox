@@ -2,7 +2,7 @@
 
 ## Objective
 
-The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. Using DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in: sampling, including the Nyquist limit and aliasing; filtering and its use for noise reduction; and digitization errors. You will also use a DAQ to record and analyze time-dependent signals from a situation of your own choosing.
+The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. Using a personal DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in: sampling, including the Nyquist limit and aliasing; filtering and its use for noise reduction; and digitization errors. You will also use your DAQ to record and analyze time-dependent signals from a system of your own choosing.
 
 ## Background
 
@@ -156,13 +156,13 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 ### Computer Data Acquisition System
 
-Data will be acquired with a standalone DAQ that communicates with your computer using a USB connection and using a LabView™ software interface. Each input signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an analog-to-digital converter, a memory buffer, a master clock, a controller, and an interface to a computer (see Figure 5).
+Data will be acquired with a standalone DAQ that communicates with your computer using a USB connection and using a LabView™ software interface. Each input signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
 
 ![](https://lh6.googleusercontent.com/U-hs4modmMu5Svybah5ZD9I38X2ZhM46tt4bDme9UhWMNkWKW2aW5L9KXjTZZFWwgtc3hLgZHo2DrVPUw89786N8wG1tzRXbUxxAk3qwQ73PZo6WuoMxOKn-ypf2u-FVp2Fv-XlSSHtHsEIZDQ)
 
-> **Figure 5.** Schematic of multiplexed, sequential sampling, computer data acquisition board and its connection to the computer.
+> **Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
 
-The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. From this charge, the original voltage value connected to the S/H is determined, and the result is converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value (sometimes referred to as a “word” of data depends on the input voltage, the _voltage range_ of the ADC (the _minimum_ and _maximum_ voltages it reads, e.g., 0-5 V), and its digital dynamic range (based on the number of ADC “bits” = $$N$$). The relation between the digitizer output and the voltage input is given by
+The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. From this charge, the original voltage value connected to the S/H is determined, and the result is amplified and converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value (sometimes referred to as a “word” of data depends on the input voltage, the _voltage range_ of the ADC (the _minimum_ and _maximum_ voltages it reads, e.g., 0-5 V), and its digital dynamic range (based on the number of ADC “bits” = $$N$$). The relation between the digitizer output and the voltage input is given by
 
 $$
 \large output=\frac{input-minimum}{maximum-minimum}\times\left(2^N-1\right)
@@ -180,7 +180,7 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 
 ![](https://lh3.googleusercontent.com/O5lQ0n9cQc44Tgcl5uBth1ZM1xbtWNI\_VV9VaP6VdKx9a98BBdqIr-d3wPj4E1KS58tNrDdU8VQgBlw2Sv7ieUDhxfnIQxUDMkLQ57fgoMeWSYn4dnKHJrOGoIs60TedLdqtedlu51QwhREX5Q)
 
-> **Figure 7.** Schematic of simultaneous sampling, computer data acquisition system.
+> **Figure 7.** Schematic of simultaneous sampling, digital data acquisition system.
 
 In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
