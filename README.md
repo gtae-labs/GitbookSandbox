@@ -2,7 +2,7 @@
 
 ## Objective
 
-The primary objective of this experiment is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. Using a personal DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals, you will explore issues in: sampling, including the Nyquist limit and aliasing; filtering and its use for noise reduction; and digitization errors. You will also use your DAQ to record and analyze time-dependent signals from a system of your own choosing.
+The primary objective of these experiments is to familiarize you with digital data acquisition of time-varying signals. This lab covers concepts in frequency analysis of time varying signals and sampling theory. It also provides an introduction to digital data acquisition (DAQ) systems. You wil use a personal DAQ to sample signals produced by waveforms stored in mp3 formats and converted to analog electrical signals. You will explore issues in: sampling, including the Nyquist limit and aliasing; filtering and its use for noise reduction; and digitization errors. You will also use your DAQ to record and analyze time-dependent signals from a system of your own choosing.
 
 ## Background
 
@@ -162,7 +162,9 @@ Data will be acquired with a standalone DAQ that communicates with your computer
 
 > **Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
 
-The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and converted to a digital value by the _analog-to-digital converter_ (ADC). The digital value produced by the ADC (sometimes referred to as a “word” of data) depends on the input voltage, and:  1) the _voltage range_, which is set by the amplifier and ADC, and is the _minimum_ and _maximum_ voltages it can read (e.g., 0-5 V), and 2) its digital dynamic range, which is based on the number of ADC “bits” (= $$N$$). The relation between the digitizer output and the voltage input is given by
+The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and converted to a digital value by the _analog-to-digital converter_ (ADC).&#x20;
+
+The digital value produced by the ADC (sometimes referred to as a “word” of data) depends not only on the input voltage, but also on the _voltage range_ and number of bits of the ADC/amplifer system. The range is given by the _minimum_ and _maximumbe_ voltages that can read (e.g., 0-5 V), and 2) its digital dynamic range, which is based on the number of ADC “bits” (= $$N$$). The relation between the digitizer output and the voltage input is given by
 
 $$
 \large output=\frac{input-minimum}{maximum-minimum}\times\left(2^N-1\right)
