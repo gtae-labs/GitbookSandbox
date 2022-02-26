@@ -70,7 +70,7 @@ $$
 
 (6)
 
-The power, $$P$$, contained in single mode is given by the square of the amplitude
+The _**power**_, $$P$$, contained in single mode is given by the square of the amplitude
 
 $$
 \large P(n)=a_{n}^{2}+b_{n}^{2}
@@ -78,7 +78,7 @@ $$
 
 (7)
 
-and the phase $$\phi$$ (or phase angle) of a mode is given by
+and the _**phase**_ $$\phi$$ (or phase angle) of a mode is given by
 
 $$
 \large \phi (n)=\tan^{-1}(b_n/a_n)
@@ -106,7 +106,7 @@ $$
 
 (9)
 
-in parallel to the complex Fourier function of equation (6). The function $$V(f)$$ represents the _**information**_ given by $$v(t)$$ _**transformed from the time domain to the frequency domain**_. The transformation is nearly identical in the reverse direction, with simply a change in the phase (note the sign of the exponent), i.e.,
+in parallel to the complex Fourier function of equation (6). The function $$V(f)$$ represents the information given by $$v(t)$$ _**transformed from the time domain to the frequency domain**_. The transformation is nearly identical in the reverse direction, with simply a change in the phase (note the sign of the exponent), i.e.,
 
 $$
 \large v(t)=\int_{-\infty}^{\infty}V(f)e^{+i2\pi ft}df
@@ -156,15 +156,15 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 ### Computer Data Acquisition System
 
-Data will be acquired with a standalone DAQ that communicates with your computer using a USB connection and using a LabView™ software interface. A DAQ can typically be connected to more than one input signal source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
+Data will be acquired with a standalone digitial data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. A DAQ can typically be connected to more than one input signal source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
 
 ![](https://lh6.googleusercontent.com/U-hs4modmMu5Svybah5ZD9I38X2ZhM46tt4bDme9UhWMNkWKW2aW5L9KXjTZZFWwgtc3hLgZHo2DrVPUw89786N8wG1tzRXbUxxAk3qwQ73PZo6WuoMxOKn-ypf2u-FVp2Fv-XlSSHtHsEIZDQ)
 
 > **Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
 
-The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and converted to a digital value by the _analog-to-digital converter_ (ADC).&#x20;
+The _multiplexer_ (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _sample-and-hold_ (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and converted to a digital value by the _analog-to-digital converter_ (ADC). The digital result is then moved to the buffer memory, and communicated to the computer.&#x20;
 
-The digital value produced by the ADC (sometimes referred to as a “word” of data) depends not only on the input voltage, but also on the _voltage range_ and number of bits of the ADC/amplifer system. The range is given by the _minimum_ and _maximumbe_ voltages that can read (e.g., 0-5 V), and 2) its digital dynamic range, which is based on the number of ADC “bits” (= $$N$$). The relation between the digitizer output and the voltage input is given by
+The digital value produced by the ADC (sometimes referred to as a “word” of data) depends not only on the input voltage, but also on the _**voltage range**_ and _**number of bits**_ of the ADC/amplifer system. The range is given by the _minimum_ and _maximum_ voltages that the ADC/amplifier can read (e.g., 0 and 5 V). The number of bits  ($$N$$) in the ADC determines its digital dynamic range (= $$2^N-1$$). Thus the relation between the digitizer output and the voltage input is given by
 
 $$
 \large output=\frac{input-minimum}{maximum-minimum}\times\left(2^N-1\right)
@@ -172,7 +172,7 @@ $$
 
 (12)
 
-where _output_ has to be an **integer value**. For example, consider a 2 V input into an ADC with a 0-10 V range, and an 8-bit digitizer ($$2^8$$possible values, or digital values of 0-255). The output of the ADC would be a digital value of 51. The digital result is then moved to the buffer memory, and communicated to the computer.
+where output has to be an _integer value_. As an example, for a 2.05 V input into a DAQ with a 0-10 V range, and an 8-bit digitizer (possible digital values of 0-255), the output value would be 52 (not 52.275). Any signal amplitude variations below the difference between two adjacent quantized levels are lost; this is known as the _**quantization error**_ =$$(maximum-minimum)/2^N$$. In the example above, we can only say the input value was 2.039V$$\pm$$0.0196 V (assuming the example ADC rounds rather than truncates). One would normally choose an ADC with a number of bits sufficiently high that the quantization error is less than the dominant sources of error in the measurement. Other factors, though, may influence the choice of ADC bits, including cost and data storage requirements, both of which increase with the added number of bits.&#x20;
 
 Multiple signal inputs are recorded by using the MUX to cycle through each of the input channels at a rate that must be faster than the overall sampling rate (how often a given channel is read) times the number of input channels being read. In the sequential sampling system illustrated in Fig. 5 (and which is representative of the system you will be using), note that the channels are _not read at exactly the same time_. There is a time delay (**skew**) between when one channel and the next is read. The skew determined by the maximum switching and reading rates of the MUX, S/H and ADC. This is illustrated in Fig. 6. Simultaneous data acquisition systems, which have negligible skew, typically employ multiple, synchronized S/H systems just upstream of the MUX (see Fig. 7).
 
