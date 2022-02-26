@@ -158,9 +158,9 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 Data will be acquired with a standalone digitial data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. A DAQ can typically be connected to more than one input signal source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
 
-![](https://lh6.googleusercontent.com/U-hs4modmMu5Svybah5ZD9I38X2ZhM46tt4bDme9UhWMNkWKW2aW5L9KXjTZZFWwgtc3hLgZHo2DrVPUw89786N8wG1tzRXbUxxAk3qwQ73PZo6WuoMxOKn-ypf2u-FVp2Fv-XlSSHtHsEIZDQ)
+![](<.gitbook/assets/DAQ schematic 1.png>)
 
-> **Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
+**Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
 
 The _**multiplexer**_** ** (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _**sample-and-hold**_** ** (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and converted to a digital value by the _**analog-to-digital converter**_** ** (ADC). The digital result is then moved to the buffer memory, and communicated to the computer.&#x20;
 
