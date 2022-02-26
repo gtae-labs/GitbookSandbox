@@ -158,6 +158,8 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 Data will be acquired with a standalone digitial data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. A DAQ can typically be connected to more than one input signal source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
 
+![](<.gitbook/assets/DAQ schematic 1 (2).png>)
+
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
 **Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
@@ -179,8 +181,10 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 ![](https://lh6.googleusercontent.com/C\_ONWpEQ-MIyPf-a\_pjkBNn0w03MAVeAAQuU9N19xQx7Uhz6DZORXVICw6ZwGgtYg384BdTbTlqj-fKJFZ-oI8uZkfNqopfebYQG3pRhhqEP6UvHu4j7Va1BwOR2YK9yh\_PF9wvRhnYQG6YjRQ)
 
 > **Figure 6.** Time delay (skew) between successive channels in sequential sampling system.
+>
+>
 
-![](https://lh3.googleusercontent.com/O5lQ0n9cQc44Tgcl5uBth1ZM1xbtWNI\_VV9VaP6VdKx9a98BBdqIr-d3wPj4E1KS58tNrDdU8VQgBlw2Sv7ieUDhxfnIQxUDMkLQ57fgoMeWSYn4dnKHJrOGoIs60TedLdqtedlu51QwhREX5Q)
+![](<.gitbook/assets/DAQ schematic 2 (1).png>)
 
 > **Figure 7.** Schematic of simultaneous sampling, digital data acquisition system.
 
