@@ -156,7 +156,7 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 ### Computer Data Acquisition System
 
-Data will be acquired with a standalone digitial data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. A DAQ can typically be connected to more than one input signal source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
+Data will be acquired with a standalone digitial data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
 
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
