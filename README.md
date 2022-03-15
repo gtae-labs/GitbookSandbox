@@ -92,6 +92,8 @@ A second example that shows the ability of a combination of sine waves to create
 
 > **Figure 2.** Partial reconstruction of a square wave using five sine waves, each with a different amplitude, frequency and phase, and a separate DC component. The individual waves are shown in Fig. 3.
 
+![](.gitbook/assets/fig3.png)
+
 > **Figure 3.** The five sine waves and constant function used to construct the square wave shown in Fig. 2.
 
 #### Fourier Transforms
@@ -193,33 +195,29 @@ In this lab, you control the data acquisition process through a software interfa
 1. **Pickup DIY kit:**
    * _Labjack DAQ, USB cord, 3.5 mm audio jack cord_
    * _Microphone and cord_
-   * _Our LabView VI_
-   * _The National Instruments DAQ (data acquisition) device_
-   * _The Tektronix oscilloscope_
-   * _Miscellaneous cables and connectors_
-2. **Prepare the cables/connections:**
-   * Using the 3.5mm-to-BNC cable, connect the MP3 player's audio output to the BNC T-connector
-   * Plug the T-connector into channel **AI0** (Analog Input 0) on the DAQ with the toggle set to FS (floating source)
-   * Using a coaxial jumper cable, connect the T-connector \_\_ to Channel 1 on the oscilloscope.
+2. **Download software:**
+   * Executable Labview VI and labjack DAQ drivers from ????
+   * mp3 tracks to your computer or listening device
+3. **Watch video on installing software and connecting to DAQ:**
    * _Note: cables can go bad, especially BNC connectors. If you experience signal dropouts or unexpected noise, have the TA check your cables._
-3. **Prepare the LabView VI:**
+4. **Prepare the LabView VI:**
    * Open DigitalSampling.VI if not already open. It is located in `D:\AE3610\<SemesterYear>\1. Digital Sampling\Execution Files`
    * Hit the Run button
    * Set the sampling rate to 22,000 Samples per second, the number of samples recorded to 6000, and the averaging level to 1.
-4. **Prepare the MP3 player:**
+5. **Prepare the MP3 player:**
    * Power on the MP3 player and ensure it is not connected to power (this will introduce noise into the audio output)
    * Set the output (volume) level to 32
    * Enable track repeat
-5. **Prepare the oscilloscope:**
+6. **Prepare the oscilloscope:**
    * Power it on using the push button on the lower left
    * With the help of the TAs, ensure that all key switches/dials are in the correct position
-6. **Commence waveform identification and characterization:**
+7. **Commence waveform identification and characterization:**
    * There are 11 audio tracks loaded onto both the MP3 player and the PC's hard drive. Each audio track contains a different periodic signal. These signals include: **single sine waves,** a **sum of three sine waves,** a **product of two sine waves**, and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have “noisy” signals.
      * _Beware: for compounded signals, power spectrum frequencies only decompose the waveform as if it is a sum of sines!!!_
    * As you analyze each track, simultaneously pull up the same track on the PC and play it through the speakers using media player software, for auditory context.
    * View the output of each track on the oscilloscope, the VI time plot, and the VI power spectrum, having adjusted their display parameters to best see the waveforms. For each track, take notes/data that best describe the waveforms. These notes should include **waveform shape/description**, and the **approximate frequency** of **any/all peaks** in the power spectrum. If you wish, you could also take screenshots/photos of each display for future reference.
      * _Tip: With the waveform displayed as you like, toggle the Continuous/Hold switch to the Hold position so that it is "frozen" in the frame. Drag the markers in the power spectrum to help you identify specific numbers._
-7. **Gather data to understand Nyquist sampling theory and aliasing:**
+8. **Gather data to understand Nyquist sampling theory and aliasing:**
    * In this step we will determine how **aliasing,** brought on by sampling rates below the Nyquist frequency, affects our ability to accurately reconstruct/analyze a signal.
    * Disconnect the T-connector and connect the 3.5mm-to-BNC cable directly to the DAQ's AI0 port. Turn off the oscilloscope.
    * Find and play the track containing the 1 kHz sine wave.
@@ -227,7 +225,7 @@ In this lab, you control the data acquisition process through a software interfa
    * Repeat the above step for the following seven sampling rates: 2000, 1500, 1200, 1000, 800, 675 and 665 S/s, in each case setting the record length value to the sampling rate value (i.e. capture X samples at X S/s).
    * From the 8 observed frequencies, identify at which sampling rate(s) aliasing is occurring.
    * For at least two additional sampling rates of your choice (below 650 S/s, with a matching record length as before), first predict whether aliasing will occur. If you believe aliasing will occur, predict the specific aliasing frequency, then acquire data to verify experimentally.
-8. **Gather data to explore the effects of varying record length and sampling rate:**
+9. **Gather data to explore the effects of varying record length and sampling rate:**
    * Some important terms:
      * Sample = a single measurement captured by the DAQ
      * Record = a batch of samples collected by the DAQ before downloading to the VI
@@ -239,25 +237,25 @@ In this lab, you control the data acquisition process through a software interfa
    * Again play the track containing the 1 kHz sine wave.
    * At the sampling rate and record length combinations shown in the table below, determine **record time**, **power spectrum frequency range**, **power spectrum frequency resolution**, and **number of points in the power spectrum**. Do this by adjusting the x-axis limits on both the time history and the power spectrum as needed, directly observing and noting down each of the required variables.\
      ![](.gitbook/assets/SamplingPoints.PNG)
-9. **Explore the implementation of a low pass filter to remove unwanted noise:**
-   * Reconfigure the cables/connectors:
-     * Remove the BNC cable from **AI0** and replace the T-connector back into AI0.
-     * Connect the 3.5mm-to-BNC cable from the MP3 player to the T-connector.
-     * Connect the remaining open port on the T-connector to either input of the Krohn-Hite filter using a coaxial jumper cable.
-     * Connect the corresponding output from the Krohn-Hite filter to **AI1** on the DAQ, ensuring the switch is set to FS (floating source), with a coaxial jumper cable.
-   * Power on the filter and set it to LOW PASS x100 mode
-   * Locate and play the track containing the sum of three sine waves at three frequencies on the MP3 player.
-   * Set the following VI parameters:
-     * Sampling rate = 22 kS/s
-     * Record length = 1000 S
-     * Number of averages = 1
-     * Display Settings
-       * Window = None (Uniform) | Vrms | Linear
-       * Plot = Amplitude | Radians
-     * In both time plots, turn off x-axis autoscale and set the limits from 0 to 0.005 s (will round up to 0.1 after hitting enter)
-   * In this step, the sum of sines represents a fictional scenario whereby a signal with two low frequency components of interest (e.g. vibration data from a structures experiment) are subject to a high frequency noise component. Your goal is to remove the high frequency noise without altering the two low frequency components of the signal of interest. This is a very common scenario for signal processing in engineering and science.
-   * Paying attention to the time history and power spectrum of both filtered and unfiltered signals, adjust the cutoff frequency dial of the low pass filter until you obtain a cleaned up filtered signal. When you are happy with your results, take a screenshot of the VI for your report and note down the cutoff frequency on the filter.
-10. **Explore the ramification of low pass filtering on signal phase**
+10. **Explore the implementation of a low pass filter to remove unwanted noise:**
+    * Reconfigure the cables/connectors:
+      * Remove the BNC cable from **AI0** and replace the T-connector back into AI0.
+      * Connect the 3.5mm-to-BNC cable from the MP3 player to the T-connector.
+      * Connect the remaining open port on the T-connector to either input of the Krohn-Hite filter using a coaxial jumper cable.
+      * Connect the corresponding output from the Krohn-Hite filter to **AI1** on the DAQ, ensuring the switch is set to FS (floating source), with a coaxial jumper cable.
+    * Power on the filter and set it to LOW PASS x100 mode
+    * Locate and play the track containing the sum of three sine waves at three frequencies on the MP3 player.
+    * Set the following VI parameters:
+      * Sampling rate = 22 kS/s
+      * Record length = 1000 S
+      * Number of averages = 1
+      * Display Settings
+        * Window = None (Uniform) | Vrms | Linear
+        * Plot = Amplitude | Radians
+      * In both time plots, turn off x-axis autoscale and set the limits from 0 to 0.005 s (will round up to 0.1 after hitting enter)
+    * In this step, the sum of sines represents a fictional scenario whereby a signal with two low frequency components of interest (e.g. vibration data from a structures experiment) are subject to a high frequency noise component. Your goal is to remove the high frequency noise without altering the two low frequency components of the signal of interest. This is a very common scenario for signal processing in engineering and science.
+    * Paying attention to the time history and power spectrum of both filtered and unfiltered signals, adjust the cutoff frequency dial of the low pass filter until you obtain a cleaned up filtered signal. When you are happy with your results, take a screenshot of the VI for your report and note down the cutoff frequency on the filter.
+11. **Explore the ramification of low pass filtering on signal phase**
     * Continue playing the previous track (sum of three sine waves).
     * Set the Krohn-Hite filter to a cutoff frequency of 10 kHz
     * Set the following VI settings:
@@ -270,7 +268,7 @@ In this lab, you control the data acquisition process through a software interfa
     * Set the VI to CONTINUOUS and press HOLD to freeze the plots after a few seconds, once new records have downloaded.
     * Successively zoom in to the 3 frequencies of interest in each phase plot by adjusting the x-axis limits.
     * Record the phase of the unfiltered and filtered signals at each frequency. Have the TAs check your data.
-11. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
+12. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
     * Locate and play the repetitive sweeping track on the MP3 player
     * Set the following VI settings:
       * Sampling rate = 6000 S/s
@@ -283,7 +281,7 @@ In this lab, you control the data acquisition process through a software interfa
     * With data acquiring, click HOLD and then TAKE NEXT as many times as needed to display a relatively flat and noise-free power spectrum. The TAs will help you achieve this.
     * When you are happy, click SAVE and choose a useful filename, being sure to add .xls as an extension (this can be added in Windows Explorer afterwards if this step is forgotten).
     * Change Number of averages to 10, repeating the previous 2 steps to acquire a new data set.
-12. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
+13. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
     * Locate and play the excessively noisy single sine wave track on the MP3 player. Ensure that the MP3 player volume is set to 32.
     * Set the following VI settings:
       * Sampling rate = 22000 S/s
@@ -316,7 +314,7 @@ In this lab, you control the data acquisition process through a software interfa
       * Note down your final band-pass filter frequencies, the final dBVrms values of each peak (unfiltered and filtered).
       * Take a screenshot of the LabView VI at its current zoom level.
       * Set both power spectrum x-axis limits between 0 and 11 kHz before taking another screenshot of the LabView VI.
-13. **Lab shutdown procedure**
+14. **Lab shutdown procedure**
     1. Plug the MP3 player in to charge
     2. Unplug all coaxial cables and arrange neatly on the desk
     3. Turn off filter, oscilloscope, and DAQ
