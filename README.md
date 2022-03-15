@@ -88,11 +88,9 @@ $$
 
 A second example that shows the ability of a combination of sine waves to create an arbitrary periodic function is shown in Fig. 2. Five sine waves and a DC component (see Fig. 3) were combined to create a function approaching a square wave. While the constructed function resembles a square wave, it is clear that more sine waves would be needed to produce a sharp square wave.
 
-![](.gitbook/assets/image%20\(6\).png)
+![](<.gitbook/assets/fig 2.png>)
 
 > **Figure 2.** Partial reconstruction of a square wave using five sine waves, each with a different amplitude, frequency and phase, and a separate DC component. The individual waves are shown in Fig. 3.
-
-![](.gitbook/assets/image%20\(5\).png)
 
 > **Figure 3.** The five sine waves and constant function used to construct the square wave shown in Fig. 2.
 
@@ -122,7 +120,7 @@ For example, Figure 4 graphically shows the Fourier transforms of various functi
 
 in other words, they contain information at only one frequency (the DC function, which does not change in time, is associated with a frequency of zero). The Fourier transforms of the rectangle and triangle functions result in $$sinc$$ and $$sinc^2$$ functions, where $$sinc(f)=\sin(\pi f)/\pi f$$ , which contains information at many frequencies, but with multiple frequency “peaks”.
 
-![](.gitbook/assets/p13-1.png)
+![](.gitbook/assets/fig4.png)
 
 > **Figure 4.** Fourier transforms of various functions (left and right pairs). The arrows represent impulse functions (i.e., delta functions), which extend infinitesimally along the x-axis, but have a integrated area corresponding to the height indicated by the arrow. The dashed regions indicate imaginary values.
 
