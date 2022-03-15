@@ -190,9 +190,9 @@ In this lab, you control the data acquisition process through a software interfa
 
 ## Procedure
 
-1. **Take a tour of the equipment with the TAs. In particular you will look discuss:**
-   * _The MP3 player_
-   * _The Krohn-Hite filter_
+1. **Pickup DIY kit:**
+   * _Labjack DAQ, USB cord, 3.5 mm audio jack cord_
+   * _Microphone and cord_
    * _Our LabView VI_
    * _The National Instruments DAQ (data acquisition) device_
    * _The Tektronix oscilloscope_
