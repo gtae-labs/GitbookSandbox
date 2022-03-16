@@ -321,60 +321,50 @@ You will still attend your lab session at your regularly scheduled time, this we
 
 **Week 3**
 
-After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experimen
+After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experiment, you will need to validate/test your microphone system.
+
+more later
 
 ## Data to be Taken
 
-1. The waveform shape/description and peak frequency(s) for each of the 11 tracks.
-2. For the 1 kHz waveform:
+1. For week 0, a hard copy of your notes taken while you were doing the required tasks (so handwritten notes or printed notes). Your notes do need to be legible, but there is no special format requirement. CAN WE DUMP THE REST OF WHAT IS BELOW?
+2. The waveform shape/description and peak frequency(s) for each of the 11 tracks.
+3. For the 1 kHz waveform:
    * [ ] The peak frequency from the power spectrum for the 10 different sampling rate/record length combinations.
    * [ ] The predicted and measured peak frequency for the 2 selected sampling rate/record length combinations.
    * [ ] A note saying which, if any, of the frequencies are aliased frequencies.
-3. For the 1 kHz waveform at the 9 different sampling rate/record length combinations:
+4. For the 1 kHz waveform at the 9 different sampling rate/record length combinations:
    * [ ] Record time.
    * [ ] Power spectrum x-axis range.
    * [ ] Power spectrum frequency resolution.
    * [ ] The number of points in the power spectrum.
-4. For the sum of 3 sines waveform:
+5. For the sum of 3 sines waveform:
    * [ ] The cutoff frequency of the low-pass filter design and a screenshot of the LabView VI with the lowpass filter set at the cutoff frequency.
-5. For the sum of 3 sines waveform run through a lowpass filter set at 10 kHz:
+6. For the sum of 3 sines waveform run through a lowpass filter set at 10 kHz:
    * [ ] The phase of the filtered and unfiltered signal at all 3 frequencies of interest (6 values total).
-6. For the sweeping sine waveform run through a lowpass filter set at 800 Hz:
+7. For the sweeping sine waveform run through a lowpass filter set at 800 Hz:
    * [ ] Two excel documents, one containing unfiltered and filtered power spectrum data from the single record run, and one for the average of 10 records run.
-7. For the excessively noise sine waveform:
+8. For the excessively noise sine waveform:
    * [ ] Designed bandpass filter range.
    * [ ] dBVrms values of both peaks before and after filtering.
    * [ ] All three screenshots taken of the LabView VI.
 
 ## **​Data Reduction**
 
-1. From your data taken in step 3 of the Data to be Taken section, come up with rules for:
+1. CAN WE DUMP THIS TOO?
+2. From your data taken in step 3 of the Data to be Taken section, come up with rules for:
    1. The number of points in the power spectrum as a function of record length
    2. The power spectrum frequency resolution as a function of record time
    3. The power spectrum frequency resolution as a function of sampling rate and record length
    4. The power spectrum x-axis limit as a function of the sampling rate.
-2. From your data taken in step 5 of the Data to be Taken section, calculate the phase difference between the unfiltered and filtered signals at all 3 frequencies of interest.
-3. Calculate the ratio of the power spectra for the filtered data (i.e., the output from the filter) and unfiltered data (i.e., the input to the filter) recorded in step 6 of the Data to be Taken section. Find the Transfer Function of the filter as a function of frequency. Do this for both the single record run and the average of 10 records run.
+3. From your data taken in step 5 of the Data to be Taken section, calculate the phase difference between the unfiltered and filtered signals at all 3 frequencies of interest.
+4. Calculate the ratio of the power spectra for the filtered data (i.e., the output from the filter) and unfiltered data (i.e., the input to the filter) recorded in step 6 of the Data to be Taken section. Find the Transfer Function of the filter as a function of frequency. Do this for both the single record run and the average of 10 records run.
 
 ## **​Results Needed for Data Report**
 
-**Note: This is a Data Report, so you must follow instructions on how to prepare the Data Report (not the FORMAL report) on the Canvas course page. Also, be sure to answer any supplemental questions listed on Canvas for this lab.**
+**Note: This will be presented by your two-person team as an Oral Report, so you must follow instructions on how to prepare the Oral Report on the Canvas course page.**&#x20;
 
-1. A table describing of each of the 11 tracks including all relevant characteristics (Step 1 of Data to be Taken).
-2. A table containing the data from Step 2 of the Data to be Taken section.
-3. A table containing the data from Step 3 of the Data to be Taken section.
-4. All 4 equations for Step 1 of the Data Reduction section.
-5. A table containing the design cutoff frequency of the lowpass filter (step 4 of Data to be Taken section).
-6. A figure of the lowpass filtered and unfiltered time history and power spectra from step 4 of the Data to be Taken section.
-7. A table containing the data from step 5 of the Data to be Taken Section and Step 2 of the Data Reduction section.
-8. Plots of the single and average power spectra, filtered and unfiltered, for the waveform with the rapidly sweeping frequency (step 6 of the Data to be Taken section)
-9. Plots of the filter transfer function described in step 3 of the Data Reduction, one based on 1 record and another based on the 10-record average results.
-10. For the bandpass filter design (Step 7 of Data to be Taken):
-    1. A table containing:
-       * [ ] The final bandpass filter design cutoff frequencies.
-       * [ ] Unfiltered/filtered peak dbVrms values prior to finalizing the filter design.
-       * [ ] Unfiltered/filtered peak dbVrms values after finalizing the filter design.
-    2. Three screenshots of the LabView VI during filter development
+1. Will need to provide some requirements on what must be in Oral Report about Week 3 experiment
 
 ## **Further Reading**
 
