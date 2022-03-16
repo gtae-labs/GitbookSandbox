@@ -154,9 +154,9 @@ As a simple example, consider a single sine wave. If we know we are dealing with
 
 Aliasing occurs for any sampled waveform having components with frequencies above the sampling system’s Nyquist frequency, i.e., $$(f>f_N)$$. One way to remove this problem is to filter the data before it is sampled. This can be accomplished by a low pass filter, a filter that only passes frequencies below some cut-off frequency. One would set the cut-off at or below the Nyquist frequency. The high frequency information is thus removed before it can be aliased. In essence, the filter produces a bandwidth limited waveform.
 
-### Computer Data Acquisition System
+### Digital Data Acquisition Systems
 
-Data will be acquired with a standalone digitial data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
+Data will be acquired with a standalone digital data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
 
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
@@ -187,6 +187,21 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 > **Figure 7.** Schematic of simultaneous sampling, digital data acquisition system.
 
 In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
+
+
+
+### Sampling/Digital Data Acquisition Terminology
+
+* **Sample** = a single measurement (i.e., at an "instant" in time) captured by the DAQ from one channel
+* **Sampling period** = the time between two successive samples&#x20;
+* **Sampling rate** = the number of samples acquired in a given period of time
+*
+* **Record** = a group of samples acquired collected by the DAQ before downloading to the VI
+*
+*
+* Record length = the number of samples in a record
+* Record time = the period over which the record was captured
+* Frequency resolution = the frequency spacing between two points in the power spectrum
 
 
 
@@ -224,27 +239,46 @@ In this lab, you control the data acquisition process through a software interfa
      * ???
    * Use your device to play one track at a time, in repeat mode
    * Observe the time plot and power spectrum and use them to identify the waveform on each track (you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts).&#x20;
-     * For each track, write down the frequencies for each of the peaks you see in the spectrum&#x20;
-4. **Examine complex waveforms**
-   * Play the track you identified as product of sines (**amplitude modulation**)&#x20;
-     * From the time plot, determine the period of the wave (time between peaks); is it same as any of the frequencies you wrote down from the power spectrum? If not, why?  &#x20;
-       * _Hint: the power spectrum shows the frequencies needed to produce that signal from a **sum** of sines!!!_&#x20;
-   * Play the track you identified as the triangle wave
-     * &#x20;__ From the time plot, determine the period of the wave (time between peaks); how is it related to the frequencies you wrote down from the power spectrum?
-   * Alternate playing the triangle wave track and the square wave track
-     * Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
-5.
-6.
-   * **approximate frequency** of **any/all peaks** in the power spectrum. If you wish, you could also take screenshots/photos of each display for future reference.
-     * _Tip: With the waveform displayed as you like, toggle the Continuous/Hold switch to the Hold position so that it is "frozen" in the frame. Drag the markers in the power spectrum to help you identify specific numbers._
-7. **Gather data to understand Nyquist sampling theory and aliasing:**
-   * In this step we will determine how **aliasing,** brought on by sampling rates below the Nyquist frequency, affects our ability to accurately reconstruct/analyze a signal.
-   * Disconnect the T-connector and connect the 3.5mm-to-BNC cable directly to the DAQ's AI0 port. Turn off the oscilloscope.
-   * Find and play the track containing the 1 kHz sine wave.
-   * With a sampling rate of 2500 S/s and record length of 2500 S, acquire a power spectrum. Record at what frequency in the spectrum the peak occurs (i.e. the frequency with the maximum power).
-   * Repeat the above step for the following seven sampling rates: 2000, 1500, 1200, 1000, 800, 675 and 665 S/s, in each case setting the record length value to the sampling rate value (i.e. capture X samples at X S/s).
-   * From the 8 observed frequencies, identify at which sampling rate(s) aliasing is occurring.
-   * For at least two additional sampling rates of your choice (below 650 S/s, with a matching record length as before), first predict whether aliasing will occur. If you believe aliasing will occur, predict the specific aliasing frequency, then acquire data to verify experimentally.
+     * For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
+4. **Examine complex waveforms and interpret power spectrum**
+   1. Play the track you identified as product of sines (**amplitude modulation**)&#x20;
+      * From the time plot, determine the period of the wave (time between peaks)
+        * _Tip: With the waveform displayed as you like, you can toggle the Continuous/Hold switch to the Hold position so that the display just shows the last data captured (doesn't keep taking new samples)._&#x20;
+      * Is the frequency of the waveform based on the period the same as any of the frequencies you wrote down from the power spectrum? If not, why?  &#x20;
+        * _Hint: the power spectrum shows the frequencies needed to produce that signal from a **sum** of sines!!!_&#x20;
+   2. Play the track you identified as the triangle wave
+      * &#x20;__ From the time plot, again determine the period of the wave (time between peaks); how is it related to the frequencies you wrote down from the power spectrum?
+   3. Alternate playing the triangle wave track and the square wave track
+      * Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
+      * Can you think of a reason why that waveform contains more high frequency content?
+5. **Examine quantization error**
+   * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
+   * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low &#x20;
+6.  **Gather data to explore the effects of varying record length and sampling rate:**
+
+    * Some important terms:
+      * Sample = a single measurement captured by the DAQ
+      * Record = a batch of samples collected by the DAQ before downloading to the VI
+      * Record length = the number of samples in a record
+      * Record time = the period over which the record was captured
+      * Sampling time = the period between successive samples
+      * Sampling rate = the number of samples acquired in a given period of time
+      * Frequency resolution = the frequency spacing between two points in the power spectrum
+    * Again play the track containing the 1 kHz sine wave.
+    * At the sampling rate and record length combinations shown in the table below, determine **record time**, **power spectrum frequency range**, **power spectrum frequency resolution**, and **number of points in the power spectrum**. Do this by adjusting the x-axis limits on both the time history and the power spectrum as needed, directly observing and noting down each of the required variables.
+
+    ****
+7.  ****
+
+    **Gather data to understand Nyquist sampling theory and aliasing:**
+
+    * In this step we will determine how **aliasing,** brought on by sampling rates below the Nyquist frequency, affects our ability to accurately reconstruct/analyze a signal.
+    * Disconnect the T-connector and connect the 3.5mm-to-BNC cable directly to the DAQ's AI0 port. Turn off the oscilloscope.
+    * Find and play the track containing the 1 kHz sine wave.
+    * With a sampling rate of 2500 S/s and record length of 2500 S, acquire a power spectrum. Record at what frequency in the spectrum the peak occurs (i.e. the frequency with the maximum power).
+    * Repeat the above step for the following seven sampling rates: 2000, 1500, 1200, 1000, 800, 675 and 665 S/s, in each case setting the record length value to the sampling rate value (i.e. capture X samples at X S/s).
+    * From the 8 observed frequencies, identify at which sampling rate(s) aliasing is occurring.
+    * For at least two additional sampling rates of your choice (below 650 S/s, with a matching record length as before), first predict whether aliasing will occur. If you believe aliasing will occur, predict the specific aliasing frequency, then acquire data to verify experimentally.
 8. **Gather data to explore the effects of varying record length and sampling rate:**
    * Some important terms:
      * Sample = a single measurement captured by the DAQ
