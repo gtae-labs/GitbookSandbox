@@ -198,7 +198,7 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 
 In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
-### Sampling/Digital Data Acquisition Terminology
+### Sampling/DAQ Terminology
 
 The following terminology is commonly used in DAQ systems, and you should become familiar with these terms.
 
@@ -236,11 +236,12 @@ At a minimum, you must complete the following tasks, but you are free to try oth
 
 You can work on this where ever and whenever you want (but before your regularly scheduled lab session). Also, you must **work on these task by yourself**. If you have trouble with the equipment or do not understand the required tasks, you can reach out to the TAs during office hours or using \_\_\_\_\_\_ (Canvas, Piazza???)
 
-You will attend your lab session at your regularly scheduled time, and be asked to demonstrate certain things to the TAs based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab to accomplish those items and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
+You will still attend your lab session at your regularly scheduled time, this week - BRING your DAQ/computer system with you. You will be asked to demonstrate certain things to the TAs and answer some questions based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab time to work on the material, and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
 
 1. **Perform initial waveform identification**
    * There are 12 audio tracks. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(At) sin(Bt), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(At), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
-   * Play each track on your device, listen to it, and write down your guess at what that track is (it is okay to guess wrong)&#x20;
+   * Play each track on your device, listen to it
+     * [ ] &#x20;Write down your guess for the waveform on each track (it is okay to guess wrong)&#x20;
 2. **Setup DAQ system**
    * Connect DAQ to computer using USB cable
    * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack cable
@@ -253,47 +254,51 @@ You will attend your lab session at your regularly scheduled time, and be asked 
      * Display Settings: ???&#x20;
      * Other settings???
    * Use your device to play one track at a time, in repeat mode
-   * Observe the time plot and power spectrum and use them to identify the waveform on each track (you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts).
-     * Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
-     * For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
+   * Observe the time plot and power spectrum; you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts)
+     * [ ] Identify the waveform on each track
+     * [ ] Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
+     * [ ] For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
 4. **Examine complex waveforms and interpret power spectra**
    1. Play the track you identified as product of sines (**amplitude modulation**)&#x20;
-      * From the time plot, determine the period of the wave (time between peaks)
+      * [ ] From the time plot, determine the period of the wave (time between peaks)
         * _Tip: With the waveform displayed as you like, you can toggle the Continuous/Hold switch to the Hold position so that the display just shows the last data captured (doesn't keep taking new samples)._&#x20;
-      * Is the frequency of the waveform based on the period the same as any of the frequencies you wrote down from the power spectrum? If not, why?  &#x20;
+      * [ ] Is the frequency of the waveform based on the period the same as any of the frequencies you wrote down from the power spectrum? If not, why?  &#x20;
         * _Hint: the power spectrum shows the frequencies needed to produce that signal from a **sum** of sines!!!_&#x20;
    2. Play the track you identified as the **triangle** wave
-      * &#x20;__ From the time plot, again determine the period of the wave (time between peaks); how is it related to the frequencies you wrote down from the power spectrum?
+      * [ ] &#x20;__ From the time plot, again determine the period of the wave (time between peaks); how is it related to the frequencies you wrote down from the power spectrum?
    3. Alternate playing the **triangle** wave track and the **square** wave track
-      * Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
-      * Can you think of any reasons why that waveform contains more high frequency content based on its shape?
+      * [ ] Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
+      * [ ] Think of any reasons why that waveform should contain more high frequency content based on its shape
 5. **Examine quantization error**
    * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
-   * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low?
+   * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks
+     * [ ] What changes do you observe when the volume is set very low?
 6. **Explore effects of record length and sampling rate on power spectrum**
    * Play the track containing the 1 kHz sine wave
    * Set the Sampling Rate = 4000 S/s and the Record Length = 4 S&#x20;
    * Make sure the power spectrum is set to Autoscale for both x and y axes
    * FIND:&#x20;
-     * the number of discrete points in the power spectrum (not the number of actual frequencies in the signal, but how many individual points are in the power spectrum plot
+     * [ ] the number of discrete points in the power spectrum (not the number of actual frequencies in the signal, but how many individual points are in the power spectrum plot
        * _Hint:  the points are connected by straight line segments in the plot_
-     * the **Frequency Resolution** (=the frequency spacing between two points in the power spectrum)
-     * the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
+     * [ ] the **Frequency Resolution** (=the frequency spacing between two points in the power spectrum)
+     * [ ] the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
        * Hint: It may help to toggle the VI from Continuous to Hold to capture one Record while you examine the power spectrum
    * Repeat the above 3 FINDs for a few longer Record Lengths (always pick an even number of samples)
    * Set the sample rate to 8000 S/s, Record Length = 4 S and repeat the FINDs&#x20;
-   * Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
+     * [ ] Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
 7. **Observe aliasing**
    * Find and play the track containing the 3 sine waves
    * Set the Sampling Rate = 5000 S/s, the Record Length = 5000 S, and toggle the switch to Continuous acquisition
    * Set the Autoscale switch for the x-axis to off on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
    * Observe the 3 frequencies of the 3 peaks in the power spectrum
-   * Increase the Sampling Rate to 7500 S/s and observe any changes in the frequencies of the 3 peaks&#x20;
-   * Continue increasing the Sampling Rate and observing the locations of the peaks on the frequency axis until you get to at least 25,000 S/s &#x20;
+   * Increase the Sampling Rate to 7500 S/s&#x20;
+     * [ ] Observe any changes in the frequencies of the 3 peaks&#x20;
+   * Continue increasing the Sampling Rate until you get to at least 25,000 S/s &#x20;
+     * [ ] As you do this, observe the locations of the peaks on the frequency axis&#x20;
 8. **Examine noise**
    * Play the each of the two tracks you identified as sine waves with noise
-     * What type of noise is present?
-     * Estimate the the signal-to-noise ratio of the signal for each track. &#x20;
+     * [ ] What type of noise is present?
+     * [ ] Estimate the the signal-to-noise ratio of the signal for each track. &#x20;
 9. **Explore the implementation of a low pass filter**
    * Play the track containing the sum of three sine waves&#x20;
    * Set the data acquisition parameters to: Sampling Rate = 22 kS/s and Record Length = 1000 S
@@ -301,19 +306,20 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * In the time plot, toggle off the x-axis Autoscale and set the limits from 0 to 0.005 s&#x20;
    * Use the VI to the Filter = Low Pass and the Low Pass Cutoff Frequency to 11 kHz
    * Paying attention to both the time plot and power spectrum of both filtered and unfiltered signals, keep reducing the cutoff frequency until you obtain a filtered signal that has eliminated the highest frequency sine wave
-     * What cutoff frequency was required to achieve this?
-     * Did the filtering impact either of the other two sine waves?
+     * [ ] What cutoff frequency was required to achieve this?
+     * [ ] Did the filtering impact either of the other two sine waves?
 10. **Explore the use of a band pass filter to remove noise from a signal**
     * Play the track containing the noisy square wave
     * Set the data acquisition parameters to: Sampling rate = 25 kS/s, Record Length = 5000 S
     * Set the Filter to Bandpass
     * Adjust the low and high cutoff frequencies to try and "clean up" the square-wave by looking at the time plot
-      * What cutoff frequencies did you use?
-      * Were you able to create a clean square wave?
-      * How did the filtering change the power spectrum?&#x20;
+      * [ ] What cutoff frequencies did you use?
+      * [ ] Were you able to create a clean square wave?
+      * [ ] How did the filtering change the power spectrum?&#x20;
 11. **Shutdown procedure**
     * do we need anything on making sure they take care of the DAQ/cords?
-    *
+12.
+13.
 
 ## Data to be Taken
 
