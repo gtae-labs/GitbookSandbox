@@ -188,15 +188,15 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 
 In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
-
-
 ### Sampling/Digital Data Acquisition Terminology
+
+The following terminology is commonly used in DAQ systems, and you should become familiar with these terms.
 
 * **Sample** = a single measurement (i.e., at an "instant" in time) captured by the DAQ from one channel
 * **Sampling period** = the time between two successive samples &#x20;
-* **Sampling rate** = 1/sampling period&#x20;
+* **Sampling rate** = 1/sampling period, with typical units of Samples/sec (S/s) or Hz
 * **Record** = a group of successive samples acquired by the DAQ&#x20;
-* **Record length** = the number of samples in a record
+* **Record length** = the number of samples in a record, typical units of Samples (S)
 * **Record duration** = the time between the first and last sample in a record&#x20;
 
 
@@ -218,7 +218,13 @@ In this lab, you control the data acquisition process through a software interfa
    * Connect device audio output to DAQ using 3.5mm audio jack cable
    * Test your system - if you have trouble, ask TA for help
 
-**Week 2** - At a  time of your choosing (but working individually)
+**Week 2**
+
+At a minimum, you must complete the following tasks, but you are free to try other things to learn about digital data acquisition, sampling theory, and frequency content of signals. **Keep notes on what you observe or find as you do each task**.
+
+You can work on this where ever and whenever you want (but before your regularly scheduled lab session). Also, you must **work on these task by yourself**. If you have trouble with the equipment or do not understand the required tasks, you can reach out to the TAs during office hours or using \_\_\_\_\_\_ (Canvas, Piazza???)
+
+You will attend your lab session at your regularly scheduled time, and be asked to demonstrate certain things to the TAs based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab to accomplish those items and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
 
 1. **Perform initial waveform identification:**
    * There are 12 audio tracks. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(At) sin(Bt), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(At), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
@@ -230,11 +236,12 @@ In this lab, you control the data acquisition process through a software interfa
 3. **Use DAQ to perform waveform identification**
    * &#x20;Run VI
    * Use the VI to choose the following settings
-     * Sampling rate = 25kHz
-     * Record length = 10,000
-     * ???
+     * Sampling rate = 25,000 S/s
+     * Record length = 10,000 S
+     * Other settings???
    * Use your device to play one track at a time, in repeat mode
-   * Observe the time plot and power spectrum and use them to identify the waveform on each track (you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts).&#x20;
+   * Observe the time plot and power spectrum and use them to identify the waveform on each track (you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts).
+     * Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
      * For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
 4. **Examine complex waveforms and interpret power spectrum**
    1. Play the track you identified as product of sines (**amplitude modulation**)&#x20;
@@ -250,26 +257,26 @@ In this lab, you control the data acquisition process through a software interfa
 5. **Examine quantization error**
    * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
    * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low &#x20;
-6.  **Gather data to explore the effects of varying record length and sampling rate:**
-
-    * Play the track containing the 1 kHz sine wave
-    * At the sampling rate and record length combinations shown in the table below, determine **record time**, **power spectrum frequency range**, **power spectrum frequency resolution**, and **number of points in the power spectrum**. Do this by adjusting the x-axis limits on both the time history and the power spectrum as needed, directly observing and noting down each of the required variables.
-    *
-    * Frequency resolution = the frequency spacing between two points in the power spectrum
-    *
-
-    ****
-7.  ****
-
-    **Gather data to understand Nyquist sampling theory and aliasing:**
-
-    * In this step we will determine how **aliasing,** brought on by sampling rates below the Nyquist frequency, affects our ability to accurately reconstruct/analyze a signal.
-    * Disconnect the T-connector and connect the 3.5mm-to-BNC cable directly to the DAQ's AI0 port. Turn off the oscilloscope.
-    * Find and play the track containing the 1 kHz sine wave.
-    * With a sampling rate of 2500 S/s and record length of 2500 S, acquire a power spectrum. Record at what frequency in the spectrum the peak occurs (i.e. the frequency with the maximum power).
-    * Repeat the above step for the following seven sampling rates: 2000, 1500, 1200, 1000, 800, 675 and 665 S/s, in each case setting the record length value to the sampling rate value (i.e. capture X samples at X S/s).
-    * From the 8 observed frequencies, identify at which sampling rate(s) aliasing is occurring.
-    * For at least two additional sampling rates of your choice (below 650 S/s, with a matching record length as before), first predict whether aliasing will occur. If you believe aliasing will occur, predict the specific aliasing frequency, then acquire data to verify experimentally.
+6. **Explore effects of record length and sampling rate on power spectrum:**
+   * Play the track containing the 1 kHz sine wave
+   * Set the Sampling Rate = 4000 S/s and the Record Length = 4 S&#x20;
+   * Make sure the power spectrum is set to Autoscale for both x and y axes
+   * FIND:&#x20;
+     * the number of discrete points in the power spectrum (not the number of actual frequencies in the signal, but how many individual points are in the power spectrum plot
+       * _Hint:  the points are connected by straight line segments in the plot_
+     * the **Frequency Resolution** (=the frequency spacing between two points in the power spectrum)
+     * the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
+       * Hint: It may help to toggle the VI from Continuous to Hold to capture one Record while you examine the power spectrum
+   * Repeat the FINDs for a few longer Record Lengths (always pick an even number of samples)
+   * Set the sample rate to 8000 S/s, Record Length = 4 S and repeat the FINDs&#x20;
+   * Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
+7. **Observe aliasing:**
+   * Find and play the track containing the 3 sine waves
+   * Set the Sampling Rate = 5000 S/s, the Record Length = 5000 S, and toggle the switch to Continuous acquisition
+   * Set the Autoscale switch for the x-axis to off on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
+   * Observe the 3 frequencies of the 3 peaks in the power spectrum
+   * Increase the Sampling Rate to 7500 S/s and observe any changes in the frequencies of the 3 peaks&#x20;
+   * Continue increasing the Sampling Rate up to at least 25,000 S/s as you observe the locations of the peaks on the frequency axis &#x20;
 8. **Gather data to explore the effects of varying record length and sampling rate:**
    * Some important terms:
      * Sample = a single measurement captured by the DAQ
