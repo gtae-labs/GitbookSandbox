@@ -14,7 +14,7 @@ $$
 
 (1)
 
-### Waveforms, Frequency Content and Discrete Sampling
+### Waveforms and Frequency Content&#x20;
 
 #### Fourier Series
 
@@ -138,13 +138,17 @@ where it is sufficient to consider only 0<$$f$$<∞ since the PSD of a real func
 
 Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$sin c^2(f)$$ (also shown in Figure 4).
 
-Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as Discrete Fourier Transforms. In addition, methods to quickly compute the Fourier Transform have also been developed, e.g., the Fast Fourier Transform. These concepts are described in detail in references 2 and 4. The digital data acquisition system you will use employs these techniques to compute the power and phase spectra of the signals that are sampled in this lab.
+Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as **Discrete Fourier Transforms**. In addition, methods to quickly compute the Fourier Transform have also been developed, e.g., the **Fast Fourier Transform**. These concepts are described in detail in References 2 and 4. The digital data acquisition system you will use employs these techniques to compute the power and phase spectra of the signals that are sampled in this lab.
 
-#### Discrete Sampling
+#### Noise
+
+Measured signals in ground experiments and flight tests (but also in all real systems including communications and controls) include noise sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models that can be appropriate for many systems. **White noise** is one of these simple types. White noise has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). For this type of noise, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency.
+
+### Sampling Theory and Aliasing
 
 In most situations, especially for digital data acquisition, the continuous function $$v(t)$$ is sampled (i.e., the data is acquired) at evenly spaced, discrete intervals in time, separated by an amount $$\Delta t$$. The sampling frequency (or data acquisition rate) is thus $$f_s=1/\Delta t$$.
 
-For a given sampling rate, we might ask how accurately the discretely acquired data can reproduce the actual waveform being sampled. The answer depends on the frequency content of the waveform and a special frequency, called the _**Nyquist frequency**_ $$(f_N)$$, which is half the sampling frequency, i.e., $$f_N=f_s/2$$. If the waveform contains no components above the Nyquist frequency, then the waveform can be completely determined by the sampled data (assuming no errors in the measurement).\*\*\* This is known as the _**Nyquist/Nyquist-Shannon Sampling Theorem**_.
+For a given sampling rate, we might ask how accurately the discretely acquired data can reproduce the actual waveform being sampled. The answer depends on the frequency content of the waveform and a special frequency, called the _**Nyquist frequency**_ $$(f_N)$$, which is half the sampling frequency, i.e., $$f_N=f_s/2$$. If the waveform contains no components above the Nyqist frequency, then the waveform can be completely determined by the sampled data (assuming no errors in the measurement).\*\*\* This is known as the _**Nyquist/Nyquist-Shannon Sampling Theorem**_.
 
 {% hint style="info" %}
 \*\*\*A waveform that has information in only a limited range of frequencies is called **bandwidth limited**. Due to phase ambiguity, the sampling frequency should actually be more than twice the maximum frequency in the waveform. For example, a sine wave sampled at 0, $$\pi$$, $$2\pi$$, etc. would always have a 0 result and could be confused with a null function.
@@ -243,20 +247,21 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Observe the time plot and power spectrum and use them to identify the waveform on each track (you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts).
      * Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
      * For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
-4. **Examine complex waveforms and interpret power spectrum**
+4. **Examine complex waveforms and interpret power spectra**
    1. Play the track you identified as product of sines (**amplitude modulation**)&#x20;
       * From the time plot, determine the period of the wave (time between peaks)
         * _Tip: With the waveform displayed as you like, you can toggle the Continuous/Hold switch to the Hold position so that the display just shows the last data captured (doesn't keep taking new samples)._&#x20;
       * Is the frequency of the waveform based on the period the same as any of the frequencies you wrote down from the power spectrum? If not, why?  &#x20;
         * _Hint: the power spectrum shows the frequencies needed to produce that signal from a **sum** of sines!!!_&#x20;
-   2. Play the track you identified as the triangle wave
+   2. Play the track you identified as the **triangle** wave
       * &#x20;__ From the time plot, again determine the period of the wave (time between peaks); how is it related to the frequencies you wrote down from the power spectrum?
-   3. Alternate playing the triangle wave track and the square wave track
+   3. Alternate playing the **triangle** wave track and the **square** wave track
       * Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
-      * Can you think of a reason why that waveform contains more high frequency content?
+      * Can you think of any reasons why that waveform contains more high frequency content based on its shape?
+   4. Play the track you identified as the sine wave&#x20;
 5. **Examine quantization error**
    * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
-   * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low &#x20;
+   * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low?
 6. **Explore effects of record length and sampling rate on power spectrum:**
    * Play the track containing the 1 kHz sine wave
    * Set the Sampling Rate = 4000 S/s and the Record Length = 4 S&#x20;
@@ -267,7 +272,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
      * the **Frequency Resolution** (=the frequency spacing between two points in the power spectrum)
      * the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
        * Hint: It may help to toggle the VI from Continuous to Hold to capture one Record while you examine the power spectrum
-   * Repeat the FINDs for a few longer Record Lengths (always pick an even number of samples)
+   * Repeat the above 3 FINDs for a few longer Record Lengths (always pick an even number of samples)
    * Set the sample rate to 8000 S/s, Record Length = 4 S and repeat the FINDs&#x20;
    * Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
 7. **Observe aliasing:**
@@ -276,27 +281,9 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Set the Autoscale switch for the x-axis to off on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
    * Observe the 3 frequencies of the 3 peaks in the power spectrum
    * Increase the Sampling Rate to 7500 S/s and observe any changes in the frequencies of the 3 peaks&#x20;
-   * Continue increasing the Sampling Rate up to at least 25,000 S/s as you observe the locations of the peaks on the frequency axis &#x20;
-8. **Gather data to explore the effects of varying record length and sampling rate:**
-   * Some important terms:
-     * Sample = a single measurement captured by the DAQ
-     * Record = a batch of samples collected by the DAQ before downloading to the VI
-     * Record length = the number of samples in a record
-     * Record time = the period over which the record was captured
-     * Sampling time = the period between successive samples
-     * Sampling rate = the number of samples acquired in a given period of time
-     * Frequency resolution = the frequency spacing between two points in the power spectrum
-   * Again play the track containing the 1 kHz sine wave.
-   * At the sampling rate and record length combinations shown in the table below, determine **record time**, **power spectrum frequency range**, **power spectrum frequency resolution**, and **number of points in the power spectrum**. Do this by adjusting the x-axis limits on both the time history and the power spectrum as needed, directly observing and noting down each of the required variables.\
-     ![](.gitbook/assets/SamplingPoints.PNG)
-9. **Explore the implementation of a low pass filter to remove unwanted noise:**
-   * Reconfigure the cables/connectors:
-     * Remove the BNC cable from **AI0** and replace the T-connector back into AI0.
-     * Connect the 3.5mm-to-BNC cable from the MP3 player to the T-connector.
-     * Connect the remaining open port on the T-connector to either input of the Krohn-Hite filter using a coaxial jumper cable.
-     * Connect the corresponding output from the Krohn-Hite filter to **AI1** on the DAQ, ensuring the switch is set to FS (floating source), with a coaxial jumper cable.
-   * Power on the filter and set it to LOW PASS x100 mode
-   * Locate and play the track containing the sum of three sine waves at three frequencies on the MP3 player.
+   * Continue increasing the Sampling Rate and observing the locations of the peaks on the frequency axis until you get to at least 25,000 S/s  &#x20;
+8. **Explore the implementation of a low pass filter to remove unwanted noise:**
+   * Play the track containing the sum of three sine waves at three frequencies on the MP3 player.
    * Set the following VI parameters:
      * Sampling rate = 22 kS/s
      * Record length = 1000 S
@@ -307,20 +294,20 @@ You will attend your lab session at your regularly scheduled time, and be asked 
      * In both time plots, turn off x-axis autoscale and set the limits from 0 to 0.005 s (will round up to 0.1 after hitting enter)
    * In this step, the sum of sines represents a fictional scenario whereby a signal with two low frequency components of interest (e.g. vibration data from a structures experiment) are subject to a high frequency noise component. Your goal is to remove the high frequency noise without altering the two low frequency components of the signal of interest. This is a very common scenario for signal processing in engineering and science.
    * Paying attention to the time history and power spectrum of both filtered and unfiltered signals, adjust the cutoff frequency dial of the low pass filter until you obtain a cleaned up filtered signal. When you are happy with your results, take a screenshot of the VI for your report and note down the cutoff frequency on the filter.
-10. **Explore the ramification of low pass filtering on signal phase**
-    * Continue playing the previous track (sum of three sine waves).
-    * Set the Krohn-Hite filter to a cutoff frequency of 10 kHz
-    * Set the following VI settings:
-      * Sampling rate = 22 kS/s
-      * Record length = 1000 S
-      * Number of averages = 1
-      * Display Settings
-        * Window = None (Uniform) | Vrms | dB
-        * Plot = Phase | Radians
-    * Set the VI to CONTINUOUS and press HOLD to freeze the plots after a few seconds, once new records have downloaded.
-    * Successively zoom in to the 3 frequencies of interest in each phase plot by adjusting the x-axis limits.
-    * Record the phase of the unfiltered and filtered signals at each frequency. Have the TAs check your data.
-11. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
+9. **Explore the ramification of low pass filtering on signal phase**
+   * Continue playing the previous track (sum of three sine waves).
+   * Set the Krohn-Hite filter to a cutoff frequency of 10 kHz
+   * Set the following VI settings:
+     * Sampling rate = 22 kS/s
+     * Record length = 1000 S
+     * Number of averages = 1
+     * Display Settings
+       * Window = None (Uniform) | Vrms | dB
+       * Plot = Phase | Radians
+   * Set the VI to CONTINUOUS and press HOLD to freeze the plots after a few seconds, once new records have downloaded.
+   * Successively zoom in to the 3 frequencies of interest in each phase plot by adjusting the x-axis limits.
+   * Record the phase of the unfiltered and filtered signals at each frequency. Have the TAs check your data.
+10. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
     * Locate and play the repetitive sweeping track on the MP3 player
     * Set the following VI settings:
       * Sampling rate = 6000 S/s
@@ -333,7 +320,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
     * With data acquiring, click HOLD and then TAKE NEXT as many times as needed to display a relatively flat and noise-free power spectrum. The TAs will help you achieve this.
     * When you are happy, click SAVE and choose a useful filename, being sure to add .xls as an extension (this can be added in Windows Explorer afterwards if this step is forgotten).
     * Change Number of averages to 10, repeating the previous 2 steps to acquire a new data set.
-12. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
+11. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
     * Locate and play the excessively noisy single sine wave track on the MP3 player. Ensure that the MP3 player volume is set to 32.
     * Set the following VI settings:
       * Sampling rate = 22000 S/s
@@ -366,7 +353,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
       * Note down your final band-pass filter frequencies, the final dBVrms values of each peak (unfiltered and filtered).
       * Take a screenshot of the LabView VI at its current zoom level.
       * Set both power spectrum x-axis limits between 0 and 11 kHz before taking another screenshot of the LabView VI.
-13. **Lab shutdown procedure**
+12. **Lab shutdown procedure**
     1. Plug the MP3 player in to charge
     2. Unplug all coaxial cables and arrange neatly on the desk
     3. Turn off filter, oscilloscope, and DAQ
@@ -426,10 +413,6 @@ You will attend your lab session at your regularly scheduled time, and be asked 
     2. Three screenshots of the LabView VI during filter development
 
 ## **Further Reading**
-
-{% embed url="https://www.youtube.com/watch?ab_channel=UncleDoug&v=ueOup-XBexU" %}
-**How to use an analog oscilloscope**
-{% endembed %}
 
 1.  R. V. Churchill and J. W. Brown, _Fourier Series and Boundary Value Problems_, 3rd ed., McGraw-Hill, 1978.
 
