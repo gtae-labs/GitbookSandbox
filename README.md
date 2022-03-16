@@ -193,15 +193,11 @@ In this lab, you control the data acquisition process through a software interfa
 ### Sampling/Digital Data Acquisition Terminology
 
 * **Sample** = a single measurement (i.e., at an "instant" in time) captured by the DAQ from one channel
-* **Sampling period** = the time between two successive samples&#x20;
-* **Sampling rate** = the number of samples acquired in a given period of time
-*
-* **Record** = a group of samples acquired collected by the DAQ before downloading to the VI
-*
-*
-* Record length = the number of samples in a record
-* Record time = the period over which the record was captured
-* Frequency resolution = the frequency spacing between two points in the power spectrum
+* **Sampling period** = the time between two successive samples &#x20;
+* **Sampling rate** = 1/sampling period&#x20;
+* **Record** = a group of successive samples acquired by the DAQ&#x20;
+* **Record length** = the number of samples in a record
+* **Record duration** = the time between the first and last sample in a record&#x20;
 
 
 
@@ -256,16 +252,11 @@ In this lab, you control the data acquisition process through a software interfa
    * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low &#x20;
 6.  **Gather data to explore the effects of varying record length and sampling rate:**
 
-    * Some important terms:
-      * Sample = a single measurement captured by the DAQ
-      * Record = a batch of samples collected by the DAQ before downloading to the VI
-      * Record length = the number of samples in a record
-      * Record time = the period over which the record was captured
-      * Sampling time = the period between successive samples
-      * Sampling rate = the number of samples acquired in a given period of time
-      * Frequency resolution = the frequency spacing between two points in the power spectrum
-    * Again play the track containing the 1 kHz sine wave.
+    * Play the track containing the 1 kHz sine wave
     * At the sampling rate and record length combinations shown in the table below, determine **record time**, **power spectrum frequency range**, **power spectrum frequency resolution**, and **number of points in the power spectrum**. Do this by adjusting the x-axis limits on both the time history and the power spectrum as needed, directly observing and noting down each of the required variables.
+    *
+    * Frequency resolution = the frequency spacing between two points in the power spectrum
+    *
 
     ****
 7.  ****
