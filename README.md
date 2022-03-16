@@ -318,8 +318,10 @@ You will still attend your lab session at your regularly scheduled time, this we
       * [ ] How did the filtering change the power spectrum?&#x20;
 11. **Shutdown procedure**
     * do we need anything on making sure they take care of the DAQ/cords?
-12.
-13.
+
+**Week 3**
+
+After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experimen
 
 ## Data to be Taken
 
