@@ -142,7 +142,13 @@ Extensions of the Fourier Transform method have been developed for non-continuou
 
 #### Noise
 
-Measured signals in ground experiments and flight tests (but also in all real systems including communications and controls) include noise sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models that can be appropriate for many systems. **White noise** is one of these simple types. White noise has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). For this type of noise, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency.
+Measured signals in ground experiments and flight tests (but also in all real systems including communications and controls) include noise sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models that can be appropriate for many systems. **White noise** is one of these simple types. White noise has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). For this type of noise, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency. Both of these types of noise can be observed at the same time (as well as other noise types). For example, Figure 5 shows a power spectrum (power spectral density, PSD vs frequency) with both 1/f and white noise components. Using these models, one can interpolate the noise at a frequency that has "real" signal, and estimate the **signal-to-noise ratio** (PSD of signal at a given frequency divided by the PSD of the estimated noise).
+
+
+
+![](.gitbook/assets/NoiseSpectrum.png)
+
+> **Figure 5.** Example noise spectrum for combination of white noise and 1/f noise. Note log scaling of both axes.
 
 ### Sampling Theory and Aliasing
 
@@ -160,11 +166,11 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 ### Digital Data Acquisition Systems
 
-Data will be acquired with a standalone digital data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 5).
+Data will be acquired with a standalone digital data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 6).
 
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
-**Figure 5.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
+**Figure 6.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
 
 The _**multiplexer**_** ** (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _**sample-and-hold**_** ** (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and then converted to a digital value by the _**analog-to-digital converter**_** ** (ADC). The digital result is then moved to the buffer memory, and communicated to the computer.&#x20;
 
@@ -178,17 +184,17 @@ $$
 
 where output has to be an _integer value_. As an example, for a 2.05 V input into a DAQ with a 0-10 V range, and an 8-bit digitizer (possible digital values of 0-255), the output value would be 52 (not 52.275). Any signal amplitude variations below the difference between two adjacent quantized levels are lost; this is known as the _**quantization error**_ =$$(maximum-minimum)/2^N$$. In the example above, we can only say the input value was 2.039V$$\pm$$0.0196 V (assuming the example ADC rounds rather than truncates). One would normally choose an ADC with a number of bits sufficiently high that the quantization error is less than the dominant sources of error in the measurement. Other factors, though, may influence the choice of ADC bits, including cost and data storage requirements, both of which increase with the added number of bits.&#x20;
 
-Multiple signal inputs are recorded by using the MUX to cycle through each of the input channels at a rate that must be faster than the overall sampling rate (how often a given channel is read) times the number of input channels being read. In the sequential sampling system illustrated in Fig. 5 (and which is representative of the system you will be using), note that the channels are _not read at exactly the same time_. There is a time delay (**skew**) between when one channel and the next is read. The skew determined by the maximum switching and reading rates of the MUX, S/H and ADC. This is illustrated in Fig. 6. Simultaneous data acquisition systems, which have negligible skew, typically employ multiple, synchronized S/H systems just upstream of the MUX (see Fig. 7).
+Multiple signal inputs are recorded by using the MUX to cycle through each of the input channels at a rate that must be faster than the overall sampling rate (how often a given channel is read) times the number of input channels being read. In the sequential sampling system illustrated in Fig. 6 (and which is representative of the system you will be using), note that the channels are _not read at exactly the same time_. There is a time delay (**skew**) between when one channel and the next is read. The skew determined by the maximum switching and reading rates of the MUX, S/H and ADC. This is illustrated in Fig. 7. Simultaneous data acquisition systems, which have negligible skew, typically employ multiple, synchronized S/H systems just upstream of the MUX (see Fig. 8).
 
 ![](https://lh6.googleusercontent.com/C\_ONWpEQ-MIyPf-a\_pjkBNn0w03MAVeAAQuU9N19xQx7Uhz6DZORXVICw6ZwGgtYg384BdTbTlqj-fKJFZ-oI8uZkfNqopfebYQG3pRhhqEP6UvHu4j7Va1BwOR2YK9yh\_PF9wvRhnYQG6YjRQ)
 
-> **Figure 6.** Time delay (skew) between successive channels in sequential sampling system.
+> **Figure 7.** Time delay (skew) between successive channels in sequential sampling system.
 >
 >
 
 ![](<.gitbook/assets/DAQ schematic 2 (1).png>)
 
-> **Figure 7.** Schematic of simultaneous sampling, digital data acquisition system.
+> **Figure 8.** Schematic of simultaneous sampling, digital data acquisition system.
 
 In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
@@ -207,7 +213,9 @@ The following terminology is commonly used in DAQ systems, and you should become
 
 ## Procedure
 
-**Week 1** - During your lab time
+**Week 1**&#x20;
+
+The following tasks should be accomplished during the lab.&#x20;
 
 1. **Pickup DIY kit:**
    * _Labjack DAQ, USB cord, 3.5 mm audio jack cord_
@@ -242,6 +250,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Use the VI to choose the following settings
      * Sampling rate = 25,000 S/s
      * Record length = 10,000 S
+     * Display Settings: ???&#x20;
      * Other settings???
    * Use your device to play one track at a time, in repeat mode
    * Observe the time plot and power spectrum and use them to identify the waveform on each track (you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts).
@@ -258,7 +267,6 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    3. Alternate playing the **triangle** wave track and the **square** wave track
       * Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
       * Can you think of any reasons why that waveform contains more high frequency content based on its shape?
-   4. Play the track you identified as the sine wave&#x20;
 5. **Examine quantization error**
    * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
    * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low?
@@ -281,33 +289,38 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Set the Autoscale switch for the x-axis to off on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
    * Observe the 3 frequencies of the 3 peaks in the power spectrum
    * Increase the Sampling Rate to 7500 S/s and observe any changes in the frequencies of the 3 peaks&#x20;
-   * Continue increasing the Sampling Rate and observing the locations of the peaks on the frequency axis until you get to at least 25,000 S/s  &#x20;
-8. **Explore the implementation of a low pass filter to remove unwanted noise:**
-   * Play the track containing the sum of three sine waves at three frequencies on the MP3 player.
-   * Set the following VI parameters:
-     * Sampling rate = 22 kS/s
-     * Record length = 1000 S
-     * Number of averages = 1
-     * Display Settings
-       * Window = None (Uniform) | Vrms | Linear
-       * Plot = Amplitude | Radians
-     * In both time plots, turn off x-axis autoscale and set the limits from 0 to 0.005 s (will round up to 0.1 after hitting enter)
-   * In this step, the sum of sines represents a fictional scenario whereby a signal with two low frequency components of interest (e.g. vibration data from a structures experiment) are subject to a high frequency noise component. Your goal is to remove the high frequency noise without altering the two low frequency components of the signal of interest. This is a very common scenario for signal processing in engineering and science.
-   * Paying attention to the time history and power spectrum of both filtered and unfiltered signals, adjust the cutoff frequency dial of the low pass filter until you obtain a cleaned up filtered signal. When you are happy with your results, take a screenshot of the VI for your report and note down the cutoff frequency on the filter.
-9. **Explore the ramification of low pass filtering on signal phase**
-   * Continue playing the previous track (sum of three sine waves).
-   * Set the Krohn-Hite filter to a cutoff frequency of 10 kHz
-   * Set the following VI settings:
-     * Sampling rate = 22 kS/s
-     * Record length = 1000 S
-     * Number of averages = 1
-     * Display Settings
-       * Window = None (Uniform) | Vrms | dB
-       * Plot = Phase | Radians
-   * Set the VI to CONTINUOUS and press HOLD to freeze the plots after a few seconds, once new records have downloaded.
-   * Successively zoom in to the 3 frequencies of interest in each phase plot by adjusting the x-axis limits.
-   * Record the phase of the unfiltered and filtered signals at each frequency. Have the TAs check your data.
-10. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
+   * Continue increasing the Sampling Rate and observing the locations of the peaks on the frequency axis until you get to at least 25,000 S/s &#x20;
+8. **Examine noise**
+   * Play the each of the two tracks you identified as sine waves with noise
+     * What type of noise is present?
+     * Estimate the the signal-to-noise ratio of the signal for each track. &#x20;
+9. ****
+10. **Explore the implementation of a low pass filter to remove unwanted noise:**
+    * Play the track containing the sum of three sine waves at three frequencies on the MP3 player.
+    * Set the following VI parameters:
+      * Sampling rate = 22 kS/s
+      * Record length = 1000 S
+      * Number of averages = 1
+      * Display Settings
+        * Window = None (Uniform) | Vrms | Linear
+        * Plot = Amplitude | Radians
+      * In both time plots, turn off x-axis autoscale and set the limits from 0 to 0.005 s (will round up to 0.1 after hitting enter)
+    * In this step, the sum of sines represents a fictional scenario whereby a signal with two low frequency components of interest (e.g. vibration data from a structures experiment) are subject to a high frequency noise component. Your goal is to remove the high frequency noise without altering the two low frequency components of the signal of interest. This is a very common scenario for signal processing in engineering and science.
+    * Paying attention to the time history and power spectrum of both filtered and unfiltered signals, adjust the cutoff frequency dial of the low pass filter until you obtain a cleaned up filtered signal. When you are happy with your results, take a screenshot of the VI for your report and note down the cutoff frequency on the filter.
+11. **Explore the ramification of low pass filtering on signal phase**
+    * Continue playing the previous track (sum of three sine waves).
+    * Set the Krohn-Hite filter to a cutoff frequency of 10 kHz
+    * Set the following VI settings:
+      * Sampling rate = 22 kS/s
+      * Record length = 1000 S
+      * Number of averages = 1
+      * Display Settings
+        * Window = None (Uniform) | Vrms | dB
+        * Plot = Phase | Radians
+    * Set the VI to CONTINUOUS and press HOLD to freeze the plots after a few seconds, once new records have downloaded.
+    * Successively zoom in to the 3 frequencies of interest in each phase plot by adjusting the x-axis limits.
+    * Record the phase of the unfiltered and filtered signals at each frequency. Have the TAs check your data.
+12. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
     * Locate and play the repetitive sweeping track on the MP3 player
     * Set the following VI settings:
       * Sampling rate = 6000 S/s
@@ -320,7 +333,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
     * With data acquiring, click HOLD and then TAKE NEXT as many times as needed to display a relatively flat and noise-free power spectrum. The TAs will help you achieve this.
     * When you are happy, click SAVE and choose a useful filename, being sure to add .xls as an extension (this can be added in Windows Explorer afterwards if this step is forgotten).
     * Change Number of averages to 10, repeating the previous 2 steps to acquire a new data set.
-11. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
+13. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
     * Locate and play the excessively noisy single sine wave track on the MP3 player. Ensure that the MP3 player volume is set to 32.
     * Set the following VI settings:
       * Sampling rate = 22000 S/s
@@ -353,7 +366,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
       * Note down your final band-pass filter frequencies, the final dBVrms values of each peak (unfiltered and filtered).
       * Take a screenshot of the LabView VI at its current zoom level.
       * Set both power spectrum x-axis limits between 0 and 11 kHz before taking another screenshot of the LabView VI.
-12. **Lab shutdown procedure**
+14. **Lab shutdown procedure**
     1. Plug the MP3 player in to charge
     2. Unplug all coaxial cables and arrange neatly on the desk
     3. Turn off filter, oscilloscope, and DAQ
