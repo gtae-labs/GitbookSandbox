@@ -238,7 +238,7 @@ You can work on this where ever and whenever you want (but before your regularly
 
 You will attend your lab session at your regularly scheduled time, and be asked to demonstrate certain things to the TAs based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab to accomplish those items and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
 
-1. **Perform initial waveform identification:**
+1. **Perform initial waveform identification**
    * There are 12 audio tracks. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(At) sin(Bt), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(At), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
    * Play each track on your device, listen to it, and write down your guess at what that track is (it is okay to guess wrong)&#x20;
 2. **Setup DAQ system**
@@ -247,8 +247,8 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Open the Labview VI
 3. **Use DAQ to perform waveform identification**
    * &#x20;Run VI
-   * Use the VI to choose the following settings
-     * Sampling rate = 25,000 S/s
+   * Use the VI to set the data acquisition parameters to:
+     * Sampling rate = 25,000 S/s = 25 kS/s
      * Record length = 10,000 S
      * Display Settings: ???&#x20;
      * Other settings???
@@ -270,7 +270,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
 5. **Examine quantization error**
    * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
    * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks; what changes do you observe when the volume is set very low?
-6. **Explore effects of record length and sampling rate on power spectrum:**
+6. **Explore effects of record length and sampling rate on power spectrum**
    * Play the track containing the 1 kHz sine wave
    * Set the Sampling Rate = 4000 S/s and the Record Length = 4 S&#x20;
    * Make sure the power spectrum is set to Autoscale for both x and y axes
@@ -283,7 +283,7 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Repeat the above 3 FINDs for a few longer Record Lengths (always pick an even number of samples)
    * Set the sample rate to 8000 S/s, Record Length = 4 S and repeat the FINDs&#x20;
    * Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
-7. **Observe aliasing:**
+7. **Observe aliasing**
    * Find and play the track containing the 3 sine waves
    * Set the Sampling Rate = 5000 S/s, the Record Length = 5000 S, and toggle the switch to Continuous acquisition
    * Set the Autoscale switch for the x-axis to off on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
@@ -294,83 +294,26 @@ You will attend your lab session at your regularly scheduled time, and be asked 
    * Play the each of the two tracks you identified as sine waves with noise
      * What type of noise is present?
      * Estimate the the signal-to-noise ratio of the signal for each track. &#x20;
-9. ****
-10. **Explore the implementation of a low pass filter to remove unwanted noise:**
-    * Play the track containing the sum of three sine waves at three frequencies on the MP3 player.
-    * Set the following VI parameters:
-      * Sampling rate = 22 kS/s
-      * Record length = 1000 S
-      * Number of averages = 1
-      * Display Settings
-        * Window = None (Uniform) | Vrms | Linear
-        * Plot = Amplitude | Radians
-      * In both time plots, turn off x-axis autoscale and set the limits from 0 to 0.005 s (will round up to 0.1 after hitting enter)
-    * In this step, the sum of sines represents a fictional scenario whereby a signal with two low frequency components of interest (e.g. vibration data from a structures experiment) are subject to a high frequency noise component. Your goal is to remove the high frequency noise without altering the two low frequency components of the signal of interest. This is a very common scenario for signal processing in engineering and science.
-    * Paying attention to the time history and power spectrum of both filtered and unfiltered signals, adjust the cutoff frequency dial of the low pass filter until you obtain a cleaned up filtered signal. When you are happy with your results, take a screenshot of the VI for your report and note down the cutoff frequency on the filter.
-11. **Explore the ramification of low pass filtering on signal phase**
-    * Continue playing the previous track (sum of three sine waves).
-    * Set the Krohn-Hite filter to a cutoff frequency of 10 kHz
-    * Set the following VI settings:
-      * Sampling rate = 22 kS/s
-      * Record length = 1000 S
-      * Number of averages = 1
-      * Display Settings
-        * Window = None (Uniform) | Vrms | dB
-        * Plot = Phase | Radians
-    * Set the VI to CONTINUOUS and press HOLD to freeze the plots after a few seconds, once new records have downloaded.
-    * Successively zoom in to the 3 frequencies of interest in each phase plot by adjusting the x-axis limits.
-    * Record the phase of the unfiltered and filtered signals at each frequency. Have the TAs check your data.
-12. **Gather data to determine the transfer function of the low pass filter at 800 Hz**
-    * Locate and play the repetitive sweeping track on the MP3 player
-    * Set the following VI settings:
-      * Sampling rate = 6000 S/s
-      * Record length = 3000 S
-      * Number of averages = 1
-      * Display Settings
-        * Window = None (Uniform) | Vrms | Linear
-        * Plot = Amplitude | Radians
-    * Set the Krohn-Hite cutoff frequency dial to 800 Hz.
-    * With data acquiring, click HOLD and then TAKE NEXT as many times as needed to display a relatively flat and noise-free power spectrum. The TAs will help you achieve this.
-    * When you are happy, click SAVE and choose a useful filename, being sure to add .xls as an extension (this can be added in Windows Explorer afterwards if this step is forgotten).
-    * Change Number of averages to 10, repeating the previous 2 steps to acquire a new data set.
-13. **Explore the implementation of a band pass filter to remove all frequency content except for one frequency of interest:**
-    * Locate and play the excessively noisy single sine wave track on the MP3 player. Ensure that the MP3 player volume is set to 32.
-    * Set the following VI settings:
-      * Sampling rate = 22000 S/s
-      * Record length = 5000 S
-      * Number of averages = 1
-      * Display Settings
-        * Window = None (Uniform) | Vrms | dB
-        * Plot = Amplitude | Radians
-    * Remove the output of the lowpass filter from DAQ AI1 and instead connect it to input of the currently unused channel of Krohn-Hite filter.
-    * Connect the output of this channel to DAQ AI1 using a further coaxial jumper cable.
-    * Set the second filter channel to HIGH PASS x1 mode and set the cutoff frequency dial such that the frequency is as low as possible (around 20 Hz).
-    * Change the original low pass filter to x100 and set the cutoff frequency dial such that the frequency is much higher than the frequency we are trying to preserve (around 20 kHz).
-    * On **both** of the filtered and unfiltered time history plots:
-      * Turn off x-axis auto-scale and set the x-axis limits between 0 and 0.01 s.
-      * Turn off y-axis auto-scale and set the y-axis limits between -0.1 and 0.1 V.
-    * On both power spectrum plots:
-      * Turn off x-axis auto-scale and set the x-axis limits between 0 and 11 kHz.
-      * Turn off y-axis auto-scale and set the y-axis limits between -130 and -30 dBVrms (-30 on the top-most limit).
-    * Take a screenshot of the VI for future reference.
-    * Gain a high-level perspective of how both filters affect the power spectrum:
-      * Whilst watching the filtered power spectrum and the time history plots, slowly reduce the low-pass filter cutoff frequency to 2000 Hz. Observe how both plots change.
-      * Zoom closer into the frequency of interest by adjusting the x-axis limits of both power spectra to between 0 and 2000 Hz.
-      * Whilst watching the filtered power spectrum, slowly increase the high-pass filter cutoff frequency to 200 Hz. Observe how the power spectrum and the time history plots change.
-      * On each power spectrum, drag marker "m1" until it snaps onto the peak of the frequency of interest. The y-axis readout (in orange below the x-axis) for each marker tells you the dBVrms of each marker, filtered and unfiltered, and thus the magnitude of the signal at that frequency. If the above steps have been followed correctly, you should see almost identical dB values at these points; have the TA check your setup if this is not the case.
-      * Note down the dBVrms of each peak.
-    * Dial in the cut-off frequencies to complete your band-pass filter design:
-      * Keeping the low pass cutoff frequency at 2000 Hz, adjust LOW PASS mode to x10.
-      * Keeping the high pass cutoff frequency at 200 Hz, adjust HIGH PASS mode to x10.
-      * Successively adjusting both dials until the filtered power spectrum has as much unwanted frequency content removed as possible, without exceeding a 3 dBVrms drop at the frequency of interest. The final filter cutoff frequencies should be evenly spaced around the frequency of interest (i.e. 1000 +/- X Hz).
-      * Note down your final band-pass filter frequencies, the final dBVrms values of each peak (unfiltered and filtered).
-      * Take a screenshot of the LabView VI at its current zoom level.
-      * Set both power spectrum x-axis limits between 0 and 11 kHz before taking another screenshot of the LabView VI.
-14. **Lab shutdown procedure**
-    1. Plug the MP3 player in to charge
-    2. Unplug all coaxial cables and arrange neatly on the desk
-    3. Turn off filter, oscilloscope, and DAQ
-    4. Have the TA upload your data/files to Canvas
+9. **Explore the implementation of a low pass filter**
+   * Play the track containing the sum of three sine waves&#x20;
+   * Set the data acquisition parameters to: Sampling Rate = 22 kS/s and Record Length = 1000 S
+   * Set the scaling of the y-axis in the power spectrum to log
+   * In the time plot, toggle off the x-axis Autoscale and set the limits from 0 to 0.005 s&#x20;
+   * Use the VI to the Filter = Low Pass and the Low Pass Cutoff Frequency to 11 kHz
+   * Paying attention to both the time plot and power spectrum of both filtered and unfiltered signals, keep reducing the cutoff frequency until you obtain a filtered signal that has eliminated the highest frequency sine wave
+     * What cutoff frequency was required to achieve this?
+     * Did the filtering impact either of the other two sine waves?
+10. **Explore the use of a band pass filter to remove noise from a signal**
+    * Play the track containing the noisy square wave
+    * Set the data acquisition parameters to: Sampling rate = 25 kS/s, Record Length = 5000 S
+    * Set the Filter to Bandpass
+    * Adjust the low and high cutoff frequencies to try and "clean up" the square-wave by looking at the time plot
+      * What cutoff frequencies did you use?
+      * Were you able to create a clean square wave?
+      * How did the filtering change the power spectrum?&#x20;
+11. **Shutdown procedure**
+    * do we need anything on making sure they take care of the DAQ/cords?
+    *
 
 ## Data to be Taken
 
