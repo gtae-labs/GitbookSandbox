@@ -290,10 +290,10 @@ You will still attend your lab session at your regularly scheduled time, this we
      * [ ] Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
 7. **Observe aliasing**
    * Find and play the track containing the 3 sine waves
-   * Set the Sampling Rate = 5000 S/s, the Record Length = 5000 S, and toggle the switch to Continuous acquisition
-   * Set the Autoscale switch for the x-axis to off on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
+   * Set the _Sampling Rate_ = 5000 S/s, the _Record Length_ = 5000 S, and toggle the switch to Continuous acquisition
+   * Set the _Autoscale_=off switch for the x-axis on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
    * Observe the 3 frequencies of the 3 peaks in the power spectrum
-   * Increase the Sampling Rate to 7500 S/s&#x20;
+   * Increase the _Sampling Rate_ to 7500 S/s&#x20;
      * [ ] Observe any changes in the frequencies of the 3 peaks&#x20;
    * Continue increasing the Sampling Rate until you get to at least 25,000 S/s &#x20;
      * [ ] As you do this, observe the locations of the peaks on the frequency axis&#x20;
