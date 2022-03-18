@@ -170,7 +170,7 @@ Data will be acquired with a standalone digital data acquisition system (**DAQ**
 
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
-**Figure 6.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
+**Figure 6.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.=
 
 The _**multiplexer**_** ** (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _**sample-and-hold**_** ** (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and then converted to a digital value by the _**analog-to-digital converter**_** ** (ADC). The digital result is then moved to the buffer memory, and communicated to the computer.&#x20;
 
@@ -245,19 +245,21 @@ You will still attend your lab session at your regularly scheduled time, this we
 2. **Setup DAQ system**
    * Connect DAQ to computer using USB cable
    * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack cable
-   * Open the Labview VI
+   * Open the GTAESimpleDAQ.exe application
 3. **Use DAQ to perform waveform identification**
-   * &#x20;Run VI
-   * Use the VI to set the data acquisition parameters to:
+   * &#x20;Start application (by hitting Run button)
+   * Set the data acquisition and display parameters to:
      * Sampling rate = 25,000 S/s = 25 kS/s
      * Record length = 10,000 S
-     * Display Settings: ???&#x20;
-     * Other settings???
+     * Autoscale = on (for all plot axes)&#x20;
+     * All other settings should be okay based on the defaults when you start the application
    * Use your device to play one track at a time, in repeat mode
    * Observe the time plot and power spectrum; you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts)
-     * [ ] Identify the waveform on each track
-     * [ ] Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
-     * [ ] For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
+     * _Tip: you can toggle the Continuous/Hold button if you want to freeze the display_
+       * [ ] Identify the waveform on each track
+       * [ ] Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
+       * [ ] For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
+         * _Tip: you can turn the autoscale off on the Power Spectrum x-axis and set the axes limits to make it easier to find the frequency(s)_
 4. **Examine complex waveforms and interpret power spectra**
    1. Play the track you identified as product of sines (**amplitude modulation**)&#x20;
       * [ ] From the time plot, determine the period of the wave (time between peaks)
@@ -270,21 +272,21 @@ You will still attend your lab session at your regularly scheduled time, this we
       * [ ] Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
       * [ ] Think of any reasons why that waveform should contain more high frequency content based on its shape
 5. **Examine quantization error**
-   * Play the track with the square wave, and make sure the VI is set to _Continuous_ and both y-axes are set to _Autoscale_
+   * Play the track with the square wave, and make sure the settings are: _Continuous, Sampling Rate_=10,000_, Record Length_ = 1000,  all axes have _Autoscale=on_ except time plot, set maximum limit on time plot x-axis to 0.01 seconds
    * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks
      * [ ] What changes do you observe when the volume is set very low?
 6. **Explore effects of record length and sampling rate on power spectrum**
    * Play the track containing the 1 kHz sine wave
-   * Set the Sampling Rate = 4000 S/s and the Record Length = 4 S&#x20;
+   * Set the _Sampling Rate_ = 4000 S/s and the _Record Length_ = 4 S&#x20;
    * Make sure the power spectrum is set to Autoscale for both x and y axes
    * FIND:&#x20;
      * [ ] the number of discrete points in the power spectrum (not the number of actual frequencies in the signal, but how many individual points are in the power spectrum plot
        * _Hint:  the points are connected by straight line segments in the plot_
      * [ ] the **Frequency Resolution** (=the frequency spacing between two points in the power spectrum)
      * [ ] the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
-       * Hint: It may help to toggle the VI from Continuous to Hold to capture one Record while you examine the power spectrum
+       * _Tip: It may help to toggle from Continuous to Hold to capture one record while you examine the power spectrum_
    * Repeat the above 3 FINDs for a few longer Record Lengths (always pick an even number of samples)
-   * Set the sample rate to 8000 S/s, Record Length = 4 S and repeat the FINDs&#x20;
+   * Set the _Sample Rate_=8000 S/s, _Record Length_=4 S and repeat the FINDs&#x20;
      * [ ] Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
 7. **Observe aliasing**
    * Find and play the track containing the 3 sine waves
