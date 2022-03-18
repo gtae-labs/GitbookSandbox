@@ -295,7 +295,7 @@ You will still attend your lab session at your regularly scheduled time, this we
    * Observe the 3 frequencies of the 3 peaks in the power spectrum
    * Increase the _Sampling Rate_ to 7500 S/s&#x20;
      * [ ] Observe any changes in the frequencies of the 3 peaks&#x20;
-   * Continue increasing the Sampling Rate until you get to at least 25,000 S/s &#x20;
+   * Continue increasing the _Sampling Rate_ until you get to at least 25,000 S/s &#x20;
      * [ ] As you do this, observe the locations of the peaks on the frequency axis&#x20;
 8. **Examine noise**
    * Play the each of the two tracks you identified as sine waves with noise
@@ -303,23 +303,26 @@ You will still attend your lab session at your regularly scheduled time, this we
      * [ ] Estimate the the signal-to-noise ratio of the signal for each track. &#x20;
 9. **Explore the implementation of a low pass filter**
    * Play the track containing the sum of three sine waves&#x20;
-   * Set the data acquisition parameters to: Sampling Rate = 22 kS/s and Record Length = 1000 S
-   * Set the scaling of the y-axis in the power spectrum to log
-   * In the time plot, toggle off the x-axis Autoscale and set the limits from 0 to 0.005 s&#x20;
-   * Use the VI to the Filter = Low Pass and the Low Pass Cutoff Frequency to 11 kHz
+   * Set the _Sampling Rate_ = 22 kS/s and _Record Length_ = 1000 S
+   * Set the _Spectrum Display Settings_=Amplitude-Log&#x20;
+   * In the time plot, _Autoscale_=off for the x-axis and set the maximum on the axis to 0.005 s
+     * _Tip: the number on the axis will show up as 0.01 because the display will round it to 2 decimal places, but the value really is 0.005s_&#x20;
+   * Set the _Filter_ = on, select from the pull down menu _Low Pass,_ select from the next pull down menu _Butterworth_, __ set _Low Cutoff Frequency_ = 11,000 Hz by typing in the value
    * Paying attention to both the time plot and power spectrum of both filtered and unfiltered signals, keep reducing the cutoff frequency until you obtain a filtered signal that has eliminated the highest frequency sine wave
      * [ ] What cutoff frequency was required to achieve this?
      * [ ] Did the filtering impact either of the other two sine waves?
 10. **Explore the use of a band pass filter to remove noise from a signal**
     * Play the track containing the noisy square wave
-    * Set the data acquisition parameters to: Sampling rate = 25 kS/s, Record Length = 5000 S
-    * Set the Filter to Bandpass
+    * Set _Sampling Rate_ = 25 kS/s, _Record Length_ = 5000 S
+    * Select _Bandpass_ from filter pulldown menu, make sure the filter type is still set to  _Butterworth_&#x20;
     * Adjust the low and high cutoff frequencies to try and "clean up" the square-wave by looking at the time plot
       * [ ] What cutoff frequencies did you use?
       * [ ] Were you able to create a clean square wave?
       * [ ] How did the filtering change the power spectrum?&#x20;
 11. **Shutdown procedure**
-    * do we need anything on making sure they take care of the DAQ/cords?
+    * When you are through, hit the _Quit_ button
+    * Close the application&#x20;
+    * If you are done using the DAQ please disconnect the cables from it before you transport or store it away
 
 **Week 3**
 
