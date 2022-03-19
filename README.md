@@ -142,13 +142,13 @@ Extensions of the Fourier Transform method have been developed for non-continuou
 
 #### Noise
 
-Measured signals in ground experiments and flight tests (but also in all real systems including communications and controls) include noise sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models that can be appropriate for many systems. **White noise** is one of these simple types. White noise has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). For this type of noise, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency. Both of these types of noise can be observed at the same time (as well as other noise types). For example, Figure 5 shows a power spectrum (power spectral density, PSD vs frequency) with both 1/f and white noise components. Using these models, one can interpolate the noise at a frequency that has "real" signal, and estimate the **signal-to-noise ratio** (PSD of signal at a given frequency divided by the PSD of the estimated noise).
+Measured signals in ground experiments and flight tests (as well as other applications such as communications and controls) include noise from various sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models, however,  that can be appropriate in many situations. For example, **white noise** has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). In this case, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency. Both of these types of noise can be observed at the same time (as well as other noise types). For example, Figure 5 shows a power spectrum (power spectral density, PSD vs frequency) with both 1/f and white noise components. Using these models, one can interpolate the noise at a frequency that has "real" signal, and estimate the **signal-to-noise ratio** (PSD of signal at a given frequency divided by the PSD of the estimated noise).
 
 
 
 ![](.gitbook/assets/NoiseSpectrum.png)
 
-> **Figure 5.** Example noise spectrum for combination of white noise and 1/f noise. Note log scaling of both axes.
+> **Figure 5.** Example noise spectrum consisting of a sum of white noise and 1/f noise (note log scaling of both axes).
 
 ### Sampling Theory and Aliasing
 
@@ -332,24 +332,14 @@ more later
 
 ## Data to be Taken
 
-1. For week 0, a hard copy of your notes taken while you were doing the required tasks (so handwritten notes or printed notes). Your notes do need to be legible, but there is no special format requirement. CAN WE DUMP THE REST OF WHAT IS BELOW?
-2. The waveform shape/description and peak frequency(s) for each of the 11 tracks.
-3. For the 1 kHz waveform:
-   * [ ] The peak frequency from the power spectrum for the 10 different sampling rate/record length combinations.
-   * [ ] The predicted and measured peak frequency for the 2 selected sampling rate/record length combinations.
-   * [ ] A note saying which, if any, of the frequencies are aliased frequencies.
-4. For the 1 kHz waveform at the 9 different sampling rate/record length combinations:
-   * [ ] Record time.
-   * [ ] Power spectrum x-axis range.
-   * [ ] Power spectrum frequency resolution.
-   * [ ] The number of points in the power spectrum.
-5. For the sum of 3 sines waveform:
-   * [ ] The cutoff frequency of the low-pass filter design and a screenshot of the LabView VI with the lowpass filter set at the cutoff frequency.
-6. For the sum of 3 sines waveform run through a lowpass filter set at 10 kHz:
-   * [ ] The phase of the filtered and unfiltered signal at all 3 frequencies of interest (6 values total).
-7. For the sweeping sine waveform run through a lowpass filter set at 800 Hz:
-   * [ ] Two excel documents, one containing unfiltered and filtered power spectrum data from the single record run, and one for the average of 10 records run.
-8. For the excessively noise sine waveform:
+### **For Week 2**
+
+1. A copy of your notes taken while you were doing the required tasks (so handwritten notes or printed notes). The notes should contain the data, observations and answers to the questions posed in the Procedure section. Your notes do need to be legible, but there is no special format requirement. CAN WE DUMP THE REST OF WHAT IS BELOW?
+
+### **For Week 3**
+
+1. Something about the signal recorded from the DAQ vs the signal recorded from the microphone/speaker using a tone generator
+2. Something about there own data
    * [ ] Designed bandpass filter range.
    * [ ] dBVrms values of both peaks before and after filtering.
    * [ ] All three screenshots taken of the LabView VI.
@@ -357,13 +347,10 @@ more later
 ## **​Data Reduction**
 
 1. CAN WE DUMP THIS TOO?
-2. From your data taken in step 3 of the Data to be Taken section, come up with rules for:
-   1. The number of points in the power spectrum as a function of record length
-   2. The power spectrum frequency resolution as a function of record time
-   3. The power spectrum frequency resolution as a function of sampling rate and record length
-   4. The power spectrum x-axis limit as a function of the sampling rate.
-3. From your data taken in step 5 of the Data to be Taken section, calculate the phase difference between the unfiltered and filtered signals at all 3 frequencies of interest.
-4. Calculate the ratio of the power spectra for the filtered data (i.e., the output from the filter) and unfiltered data (i.e., the input to the filter) recorded in step 6 of the Data to be Taken section. Find the Transfer Function of the filter as a function of frequency. Do this for both the single record run and the average of 10 records run.
+
+
+
+
 
 ## **​Results Needed for Data Report**
 
