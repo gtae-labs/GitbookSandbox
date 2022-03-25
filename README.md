@@ -120,7 +120,7 @@ For example, Figure 4 graphically shows the Fourier transforms of various functi
 \*\*The negative frequencies relate to phase information for the sine and cosine and do not actually represent different frequencies, i.e., for real functions $$v(t)$$ , it can be shown that $$|V(f)|=|V(-f)|$$. That means that if you take the absolute value of V, the part of V below 0 frequency looks like a reflection of the part for f>0.
 {% endhint %}
 
-in other words, they contain information at only one frequency (the DC function, which does not change in time, is associated with a frequency of zero). The Fourier transforms of the rectangle and triangle functions result in $$sinc$$ and $$sinc^2$$ functions, where $$sinc(f)=\sin(\pi f)/\pi f$$ , which contains information at many frequencies, but with multiple frequency “peaks”.
+in other words, they contain information at only one frequency (the DC function, which does not change in time, is associated with a frequency of zero). The rectangle and triangle functions shown are not repeating like the sine waves; the functions shown here represent "single pulses." The Fourier transforms of these single rectangle and triangle functions result in $$sinc$$ and $$sinc^2$$ functions, where $$sinc(f)=\sin(\pi f)/\pi f$$ , which contains information at many frequencies, but with multiple frequency “peaks”.
 
 ![](.gitbook/assets/fig4.png)
 
@@ -134,13 +134,17 @@ $$
 
 (11)
 
-where it is sufficient to consider only 0<$$f$$<∞ since the PSD of a real function is symmetric about $$f$$=0.\*\*
+where it is sufficient to consider only 0<$$f$$<∞ since the PSD of a real function is symmetric about $$f$$=0.\*\* Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$sin c^2(f)$$ (also shown in Figure 4).
 
-Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$sin c^2(f)$$ (also shown in Figure 4).
+Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as **Discrete Fourier Transforms (DFT)**. An example PSD is shown in Fig. 5 for an 80 Hz sine wave based on a DFT. Unlike the Fourier transform of the sine wave in Fig. 4, Note that the PSD for the sine wave no longer&#x20;
 
-Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as **Discrete Fourier Transforms**. In addition, methods to quickly compute the Fourier Transform have also been developed, e.g., the **Fast Fourier Transform**. These concepts are described in detail in References 2 and 4. The digital data acquisition system you will use employs these techniques to compute the power and phase spectra of the signals that are sampled in this lab.
+In addition, methods to quickly compute the Fourier Transform have also been developed, e.g., the **Fast Fourier Transform (FFT)**. These concepts are described in detail in References 2 and 4. The digital data acquisition system you will use employs these techniques to compute the power and phase spectra of the signals that are sampled in this lab.
 
-#### Noise
+![](.gitbook/assets/PSD.png)
+
+> **Figure 5.** PSD of an 80 Hz sine wave obtained with a DFT; with values sampled at 2 msec intervals; inset shows zoomed-in region around 80 Hz.&#x20;
+
+​**Noise**
 
 Measured signals in ground experiments and flight tests (as well as other applications such as communications and controls) include noise from various sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models, however,  that can be appropriate in many situations. For example, **white noise** has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). In this case, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency. Both of these types of noise can be observed at the same time (as well as other noise types). For example, Figure 5 shows a power spectrum (power spectral density, PSD vs frequency) with both 1/f and white noise components. Using these models, one can interpolate the noise at a frequency that has "real" signal, and estimate the **signal-to-noise ratio** (PSD of signal at a given frequency divided by the PSD of the estimated noise).
 
