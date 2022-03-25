@@ -136,9 +136,11 @@ $$
 
 where it is sufficient to consider only 0<$$f$$<∞ since the PSD of a real function is symmetric about $$f$$=0.\*\* Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$sin c^2(f)$$ (also shown in Figure 4).
 
-Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as **Discrete Fourier Transforms (DFT)**. An example PSD is shown in Fig. 5 for an 80 Hz sine wave based on a DFT. Unlike the Fourier transform of the sine wave in Fig. 4, Note that the PSD for the sine wave no longer&#x20;
+Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as **Discrete Fourier Transforms (DFT)**, and a computationally efficient approach is known as the **Fast Fourier Transform (FFT)**. These concepts are described in detail in References 2 and 4. The digital data acquisition system you will use employs these techniques to compute power (and phase) spectra.
 
-In addition, methods to quickly compute the Fourier Transform have also been developed, e.g., the **Fast Fourier Transform (FFT)**. These concepts are described in detail in References 2 and 4. The digital data acquisition system you will use employs these techniques to compute the power and phase spectra of the signals that are sampled in this lab.
+An example PSD is shown in Fig. 5 for an 80 Hz sine wave based on a DFT. Unlike the Fourier Transform of the sine wave in Fig. 4, the PSD for a sine wave is no longer infinitely thin, i.e., the DFT shows power spread over a small range of frequencies around 80 Hz. This occurs because the DFT has a limited **frequency resolution** (it can only report values at discrete frequencies).&#x20;
+
+
 
 ![](.gitbook/assets/PSD.png)
 
@@ -156,7 +158,7 @@ Measured signals in ground experiments and flight tests (as well as other applic
 
 ### Sampling Theory and Aliasing
 
-In most situations, especially for digital data acquisition, the continuous function $$v(t)$$ is sampled (i.e., the data is acquired) at evenly spaced, discrete intervals in time, separated by an amount $$\Delta t$$. The sampling frequency (or data acquisition rate) is thus $$f_s=1/\Delta t$$.
+For most situations involving either computer generated or computer acquired data, the continuous function $$v(t)$$ is sampled at evenly spaced, discrete intervals in time, separated by an amount $$\Delta t$$. The sampling frequency (or data acquisition rate) is thus $$f_s=1/\Delta t$$.
 
 For a given sampling rate, we might ask how accurately the discretely acquired data can reproduce the actual waveform being sampled. The answer depends on the frequency content of the waveform and a special frequency, called the _**Nyquist frequency**_ $$(f_N)$$, which is half the sampling frequency, i.e., $$f_N=f_s/2$$. If the waveform contains no components above the Nyqist frequency, then the waveform can be completely determined by the sampled data (assuming no errors in the measurement).\*\*\* This is known as the _**Nyquist/Nyquist-Shannon Sampling Theorem**_.
 
