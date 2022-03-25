@@ -255,7 +255,7 @@ You will still attend your lab session at your regularly scheduled time, this we
      * All other settings should be okay based on the defaults when you start the application
    * Use your device to play one track at a time, in repeat mode
    * Observe the time plot and power spectrum; you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts)
-     * _Tip: you can toggle the Continuous/Hold button if you want to freeze the display_
+     * _Tip: With the waveform displayed as you like, you can toggle the Continuous/Hold switch to the Hold position so that the display just shows the last data captured (doesn't keep taking new samples)_
        * [ ] Identify the waveform on each track
        * [ ] Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
        * [ ] For each track, write down the frequencies for each of the peaks you see in the power spectrum&#x20;
@@ -263,7 +263,7 @@ You will still attend your lab session at your regularly scheduled time, this we
 4. **Examine complex waveforms and interpret power spectra**
    1. Play the track you identified as product of sines (**amplitude modulation**)&#x20;
       * [ ] From the time plot, determine the period of the wave (time between peaks)
-        * _Tip: With the waveform displayed as you like, you can toggle the Continuous/Hold switch to the Hold position so that the display just shows the last data captured (doesn't keep taking new samples)._&#x20;
+        * _Tip: remember you can toggle the Continuous/Hold button if you want to freeze the display_&#x20;
       * [ ] Is the frequency of the waveform based on the period the same as any of the frequencies you wrote down from the power spectrum? If not, why?  &#x20;
         * _Hint: the power spectrum shows the frequencies needed to produce that signal from a **sum** of sines!!!_&#x20;
    2. Play the track you identified as the **triangle** wave
