@@ -334,7 +334,7 @@ You will still attend your lab session at your regularly scheduled time, this we
 
 After passing your in-lab assessment, you and your partner should meet and decide what experiment(s) you want to perform with your DAQ/microphone system. You will want to find something that interests your team, but also allows you to explore some interesting issues regarding the frequency content or frequency analysis of your signals.
 
-As part of this experiment - like any real-world test or experiment, you will need to first **validate/characterize your microphone system**. The idea is to measure  the microphone captures at various freqencies to what ttThe following procedure describes this latter process.
+As part of this experiment - like any real-world test or experiment, you will need to first **validate/characterize your equipment - in this case the microphone system**. The idea is to measure how well the microphone responds at various frequencies. The following procedure describes this latter process.
 
 1. **Setup Tone Generator**
    * Find a device (computer, tablet, etc.) with a wired audio output jack
@@ -360,7 +360,7 @@ As part of this experiment - like any real-world test or experiment, you will ne
    * For each tone, record the microphone output with the DAQ using the same sampling setting used for that tone in Steps 3-4
    * Save the record for each tone using \_\_\_\_\_????
 
-more later
+&#x20;
 
 ## Data to be Taken
 
