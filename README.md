@@ -366,25 +366,23 @@ As part of this experiment - like any real-world test or experiment, you will ne
 
 ### **For Week 2**
 
-1. A copy of your notes taken while you were doing the required tasks (so handwritten notes or printed notes). The notes should contain the data, observations and answers to the questions posed in the Procedure section. Your notes do need to be legible, but there is no special format requirement. CAN WE DUMP THE REST OF WHAT IS BELOW?
+1. A copy of your notes taken while you were doing the required tasks (so handwritten notes or printed notes). The notes should contain the data, observations and answers to the questions posed in the Procedure section. Your notes do need to be legible, but there is no special format requirement.&#x20;
 
-### **For Week 3**
+### For Week 3
 
-1. Something about the signal recorded from the DAQ vs the signal recorded from the microphone/speaker using a tone generator
-2. Something about there own data
-   * [ ] Designed bandpass filter range.
-   * [ ] dBVrms values of both peaks before and after filtering.
-   * [ ] All three screenshots taken of the LabView VI.
+1. Time histories and power spectra at 10 (or more) single frequencies (from a Tone Generator) recorded by connecting the audio output of the computer device directly to the DAQ.
+2. Time histories and power spectra at the same single frequencies as in Item 1, but recorded by playing them through the device speakers and capturing them with the microphone connected to the DAQ.
+3. Appropriate data for the team's own experiment.
 
 ## **​Data Reduction**
 
-1. CAN WE DUMP THIS TOO?
+1. Power at each frequency
 
 
 
 
 
-## **​Results Needed for Data Report**
+## **​Results Needed for Oral Report**
 
 **Note: This will be presented by your two-person team as an Oral Report, so you must follow instructions on how to prepare the Oral Report on the Canvas course page.**&#x20;
 
