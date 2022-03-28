@@ -255,7 +255,7 @@ You will still attend your lab session at your regularly scheduled time, this we
 3. **Use DAQ to perform waveform identification**
    * &#x20;Start application (by hitting Run button)
    * Set the data acquisition and display parameters to:
-     * Sampling rate = 25,000 S/s = 25 kS/s
+     * Sampling rate = 25,000 S/s
      * Record length = 10,000 S
      * Autoscale = on (for all plot axes)&#x20;
      * All other settings should be okay based on the defaults when you start the application
@@ -332,7 +332,22 @@ You will still attend your lab session at your regularly scheduled time, this we
 
 **Week 3**
 
-After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experiment, you will need to validate/test your microphone system.
+After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experiment, you will need to first **validate/test your microphone system**. The following procedure describes this process.
+
+1. **Setup DAQ nd Tone Generaor**
+   * Connect DAQ to computer using USB cable
+   * Locate any **Tone Generator** app on the web (a Tone Generator will output a sine wave of a single frequency)
+   * Set the volume on the Tone Generator app to at least 75% of maximum&#x20;
+   * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack cable
+   * Open the GTAESimpleDAQ.exe application
+   * Start application (by hitting Run button)
+2. **Record and save op**
+   * Use the Tone Generator to output a tone at 200 Hz
+   * Set the Sampling Rate Continuous/Hold button if you want to freeze the display   &#x20;
+3.
+   * Connect DAQ to computer using USB cable
+   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack cable
+   * Open the GTAESimpleDAQ.exe application
 
 more later
 
