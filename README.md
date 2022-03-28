@@ -334,16 +334,28 @@ You will still attend your lab session at your regularly scheduled time, this we
 
 After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experiment, you will need to first **validate/test your microphone system**. The following procedure describes this process.
 
-1. **Setup DAQ nd Tone Generaor**
+1. **Setup nd Tone Generaor**
    * Connect DAQ to computer using USB cable
    * Locate any **Tone Generator** app on the web (a Tone Generator will output a sine wave of a single frequency)
    * Set the volume on the Tone Generator app to at least 75% of maximum&#x20;
    * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack cable
    * Open the GTAESimpleDAQ.exe application
    * Start application (by hitting Run button)
-2. **Record and save op**
-   * Use the Tone Generator to output a tone at 200 Hz
-   * Set the Sampling Rate Continuous/Hold button if you want to freeze the display   &#x20;
+2.
+
+    * Connect DAQ to computer using USB cable
+    * Locate any **Tone Generator** app on the web (a Tone Generator will output a sine wave of a single frequency)
+    * Set the volume on the Tone Generator app to at least 75% of maximum&#x20;
+    * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack cable
+    * Open the GTAESimpleDAQ.exe application
+    * Start application (by hitting Run button)
+
+    **Setup DAQ nd Tone Generaor**
+
+    **Record and save op**
+
+    * Use the Tone Generator to output a tone at 200 Hz
+    * Set the Sampling Rate Continuous/Hold button if you want to freeze the display   &#x20;
 3.
    * Connect DAQ to computer using USB cable
    * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack cable
