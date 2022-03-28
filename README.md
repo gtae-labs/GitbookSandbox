@@ -332,7 +332,9 @@ You will still attend your lab session at your regularly scheduled time, this we
 
 **Week 3**
 
-After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experiment, you will need to first **validate/test your microphone system**. The following procedure describes this process.
+After passing your in-lab assessment, you and your partner should meet and decide what experiment(s) you want to perform with your DAQ/microphone system. You will want to find something that interests your team, but also allows you to explore some interesting issues regarding the frequency content or frequency analysis of your signals.
+
+As part of this experiment - like any real-world test or experiment, you will need to first **validate/characterize your microphone system**. The idea is to measure  the microphone captures at various freqencies to what ttThe following procedure describes this latter process.
 
 1. **Setup Tone Generator**
    * Find a device (computer, tablet, etc.) with a wired audio output jack
