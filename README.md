@@ -9,10 +9,8 @@ The primary objective of these experiments is to familiarize you with digital da
 Most experimental measurements involve the dimension of **time**. Experimental data is acquired over the course of some time, and during this time the actual physical parameter of interest (the _**measurand**_) may change. This could be due to a transient, such as the stress induced in a material by a sudden impact, a periodic phenomena, like the bending and twist of a helicopter blade due to flutter, or random or chaotic fluctuations, like the turbulent velocity in a wind tunnel. Even when the measurand is nominally constant in time, other parameters that influence the measurement may vary, for example drifts in the measurement device. Thus, the experimenter is often interested in measuring a variable that can be described by the general function (or _**waveform**_),
 
 $$
-\large v=v(t)
+\large v=v(t) \tag{1}
 $$
-
-(1)
 
 ### Waveforms and Frequency Content&#x20;
 
@@ -25,66 +23,52 @@ One of the simplest time-dependent functions we encounter is the sine (or cosine
 {% endhint %}
 
 $$
-\large v(t)=A\sin(\omega t+\phi)=A\sin(2\pi ft+\phi)
+\large v(t)=A\sin(\omega t+\phi)=A\sin(2\pi ft+\phi) \tag{2}
 $$
 
-(2)
+where $$A$$ is the amplitude, $$\omega$$ is the circular frequency (e.g., rad/s), $$f$$is the cyclic frequency (e.g., cycles/s, Hertz or $$s^{-1}$$), and $$\phi$$ is the phase, which represents the time-shift of the sine-wave from some reference time that defines $$t = 0$$. Such a function is often denoted as a _simple harmonic_ waveform.
 
-where $$A$$ is the amplitude, $$\omega$$ is the circular frequency (e.g., rad/s), $$f$$is the cyclic frequency (e.g., cycles/s, Hertz or $$s^{-1}$$), and $$\phi$$ is the phase, which represents the time-shift of the sine-wave from some reference time that defines _t_=0. Such a function is often denoted as a _simple harmonic_ waveform.
-
-More general periodic waveforms, which repeat themselves with a period _T_ and thus have a frequency $$f$$= 1_/T_, can be **written as a linear combination of simple harmonic** _**modes**_. There is the basic, _**fundamental**_ mode (with frequency$$f$$), and _**harmonics**_ of the fundamental mode, with integer multiples of its frequency (2$$f$$, 3$$f$$, …). For example, we could describe the vibrations of a tuning fork or the acoustic oscillations in a pipe this way. Mathematically, this linear combination of modes is expressed as a **Fourier series expansion**,
+More general periodic waveforms, which repeat themselves with a period _T_ and thus have a frequency $$f = 1/T$$, can be **written as a linear combination of simple harmonic** _**modes**_. There is the basic, _**fundamental**_ mode (with frequency$$f$$), and _**harmonics**_ of the fundamental mode, with integer multiples of its frequency ($$2f$$, $$3f$$, …). For example, we could describe the vibrations of a tuning fork or the acoustic oscillations in a pipe this way. Mathematically, this linear combination of modes is expressed as a **Fourier series expansion**,
 
 $$
-\large v(t)=a_0+\sum_{n=1}^\infty\left[a_n\cos(2\pi nft)+b_n\sin(2\pi nft)\right]
+\large v(t)=a_0+\sum_{n=1}^\infty\left[a_n\cos(2\pi nft)+b_n\sin(2\pi nft)\right] \tag{3}
 $$
 
-(3)
-
-where $$nf$$ represents the frequency of the $$n^{th}$$ mode ($$n$$=1 for the fundamental, $$n$$=2 for the first harmonic, etc.), $$a_0$$ represents the steady component of the waveform, and the $$a_n$$, $$b_n$$ are the harmonic coefficients (or amplitudes) of each mode. The steady amplitude, $$a_0$$, is often called the DC component of the waveform, in reference to classical electrical power systems, which are either **D**irect **C**urrent (steady) or **A**lternating **C**urrent (sinusoidal with a zero average).
+where $$nf$$ represents the frequency of the $$n^{th}$$ mode ($$n = 1$$ for the fundamental, $$n = 2$$ for the first harmonic, etc.), $$a_0$$ represents the steady component of the waveform, and the $$a_n$$, $$b_n$$ are the harmonic coefficients (or amplitudes) of each mode. The steady amplitude, $$a_0$$, is often called the DC component of the waveform, in reference to classical electrical power systems, which are either **D**irect **C**urrent (steady) or **A**lternating **C**urrent (sinusoidal with a zero average).
 
 ![](https://lh4.googleusercontent.com/o3qZr2lYi6rcjH7sJeKmBTw\_2UWN9lMQPjXd0QjSEXS3SLgvAuAg4XScFAJLa9WeW\_SLi4NW6dDWGzjbesBhe1usVjkIKje9VN2jrXL4bmrJNbKhFGaSHHACqVBDqn8jDfR5yB7q)
 
-> **Figure 1.** A waveform composed of a fundamental mode (at 50 Hz) and its 9th harmonic (at 10 times the fundamental frequency, or 500 Hz). The waveform also has a DC, or time-averaged, component of 4 mV. Specifically, the signal (in millivolts) is 4+sin(100πt)+2sin(1000πt), or equivalently, based on cosines, 4+cos(100πt-π/2)+2cos(1000πt-π/2), which simply represents a phase shift of -π/2.
+> **Figure 1.** A waveform composed of a fundamental mode (at 50 Hz) and its 9th harmonic (at 10 times the fundamental frequency, or 500 Hz). The waveform also has a DC, or time-averaged, component of 4 mV. Specifically, the signal (in millivolts) is $$4+ \sin(100\pi t) + 2\sin(1000\pi t)$$, or equivalently, based on cosines, $$4+ \cos(100\pi t - \pi/2) + 2\cos(1000\pi t - \pi/2)$$, which simply represents a phase shift of $$-\pi/2$$.
 
 For example, Figure 1 shows a simple waveform composed of two frequencies, a fundamental mode at 50 Hz and its 9th harmonic. Thus the complete waveform is repeated every 20 ms (period=1/fundamental frequency =1/50 s). The waveform shown in the figure also has a DC component. In other words, the signal has a nonzero value when averaged over its period. In general, we can write the DC amplitude as
 
 $$
-\large a_0=\frac{1}{T}\int_{-T/2}^{T/2}v(t)dt=f\int_{-T/2}^{T/2}v(t)dt
+\large a_0=\frac{1}{T}\int_{-T/2}^{T/2}v(t)dt=f\int_{-T/2}^{T/2}v(t)dt \tag{4}
 $$
-
-(4)
 
 The other coefficients of the Fourier expansion are given by
 
 $$
-\large a_n=2f\int_{-T/2}^{T/2}v(t)\cos(2\pi nft)dt \\ \space \\ \space \\ b_n=2f\int_{-T/2}^{T/2}v(t)\sin(2\pi nft)dt
+\begin{equation*} \tag{5} \begin{align*} \large a_n &= 2f\int_{-T/2}^{T/2}v(t)\cos(2\pi nft)dt  \\[20pt]  b_n &= 2f\int_{-T/2}^{T/2}v(t)\sin(2\pi nft)dt \end{align*} \end{equation*}
 $$
-
-(5)
 
 and they can be combined into a complex number (since, $$e^{-ix}=\cos x-i\sin x$$),
 
 $$
-\large a_n-ib_n=2f\int_{-T/2}^{T/2}v(t)e^{-i2\pi nft}dt
+\large a_n-ib_n=2f\int_{-T/2}^{T/2}v(t)e^{-i2\pi nft}dt \tag{6}
 $$
-
-(6)
 
 The _**power**_, $$P$$, contained in single mode is given by the square of the amplitude
 
 $$
-\large P(n)=a_{n}^{2}+b_{n}^{2}
+\large P(n)=a_{n}^{2}+b_{n}^{2} \tag{7}
 $$
-
-(7)
 
 and the _**phase**_ $$\phi$$ (or phase angle) of a mode is given by
 
 $$
-\large \phi (n)=\tan^{-1}(b_n/a_n)
+\large \phi (n)=\tan^{-1}(b_n/a_n) \tag{8}
 $$
-
-(8)
 
 A second example that shows the ability of a combination of sine waves to create an arbitrary periodic function is shown in Fig. 2. Five sine waves and a DC component (see Fig. 3) were combined to create a function approaching a square wave. While the constructed function resembles a square wave, it is clear that more sine waves would be needed to produce a sharp square wave.
 
@@ -101,26 +85,22 @@ A second example that shows the ability of a combination of sine waves to create
 The procedure outlined above for periodic functions can be extended to general functions, which are not necessarily periodic, by considering any arbitrary function to be periodic with an infinitely long period. This approach leads to the **Fourier Transform**. Given a function $$v(t)$$, its Fourier Transform $$V(f)$$ is a complex function defined by
 
 $$
-\large V(f)=\int_{-\infty}^{\infty}v(t)e^{-i2\pi ft}dt
+\large V(f)=\int_{-\infty}^{\infty}v(t)e^{-i2\pi ft}dt \tag{9}
 $$
-
-(9)
 
 in parallel to the complex Fourier function of equation (6). The function $$V(f)$$ represents the information given by $$v(t)$$ _**transformed from the time domain to the frequency domain**_. The transformation is nearly identical in the reverse direction, with simply a change in the phase (note the sign of the exponent), i.e.,
 
 $$
-\large v(t)=\int_{-\infty}^{\infty}V(f)e^{+i2\pi ft}df
+\large v(t)=\int_{-\infty}^{\infty}V(f)e^{+i2\pi ft}df \tag{10}
 $$
-
-(10)
 
 For example, Figure 4 graphically shows the Fourier transforms of various functions, including sine and cosine waves, a rectangle function (Π), a triangle function (Λ) and a constant, or DC, function. The sine, cosine and DC waveforms result in Fourier transforms that are nonzero at a single frequency\*\*;
 
 {% hint style="info" %}
-\*\*The negative frequencies relate to phase information for the sine and cosine and do not actually represent different frequencies, i.e., for real functions $$v(t)$$ , it can be shown that $$|V(f)|=|V(-f)|$$. That means that if you take the absolute value of V, the part of V below 0 frequency looks like a reflection of the part for f>0.
+\*\*The negative frequencies relate to phase information for the sine and cosine and do not actually represent different frequencies, i.e., for real functions $$v(t)$$, it can be shown that $$|V(f)|=|V(-f)|$$. That means that if you take the absolute value of V, the part of V below 0 frequency looks like a reflection of the part for $$f > 0$$.
 {% endhint %}
 
-in other words, they contain information at only one frequency (the DC function, which does not change in time, is associated with a frequency of zero). The rectangle and triangle functions shown are not repeating like the sine waves; the functions shown here represent "single pulses." The Fourier transforms of these single rectangle and triangle functions result in $$sinc$$ and $$sinc^2$$ functions, where $$sinc(f)=\sin(\pi f)/\pi f$$ , which contains information at many frequencies, but with multiple frequency “peaks”.
+in other words, they contain information at only one frequency (the DC function, which does not change in time, is associated with a frequency of zero). The rectangle and triangle functions shown are not repeating like the sine waves; the functions shown here represent "single pulses." The Fourier transforms of these single rectangle and triangle functions result in $$\text{sinc}$$ and $$\text{sinc}^2$$ functions, where $$\text{sinc}(f)=\sin(\pi f)/\pi f$$ , which contains information at many frequencies, but with multiple frequency “peaks”.
 
 ![](.gitbook/assets/fig4.png)
 
@@ -129,12 +109,10 @@ in other words, they contain information at only one frequency (the DC function,
 Instead of looking at the Fourier transform, we often are interested in the _**power spectrum**_ (or _**power spectral density,**_ **PSD**) of a waveform. This represents the amount of power or energy in a region between $$f$$ and $$f+df$$. For real (noncomplex) functions $$v(t)$$, this is given by
 
 $$
-\large PSD(f)=|V(f)|^2
+\large PSD(f)=|V(f)|^2 \tag{11}
 $$
 
-(11)
-
-where it is sufficient to consider only 0<$$f$$<∞ since the PSD of a real function is symmetric about $$f$$=0.\*\* Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$sin c^2(f)$$ (also shown in Figure 4).
+where it is sufficient to consider only $$0 < f < \infty$$ since the PSD of a real function is symmetric about $$f = 0$$.\*\* Thus the PSD of the rectangle function, $$\Pi(x)$$ as shown in Figure 4, is the square of its Fourier transform, or $$\text{sinc}^2(f)$$ (also shown in Figure 4).
 
 Extensions of the Fourier Transform method have been developed for non-continuous functions, specifically for signals that have been discretely sampled by a computer, data acquisition system, or produced by digital means. These are generally known as **Discrete Fourier Transforms (DFT)**, and a computationally efficient approach is known as the **Fast Fourier Transform (FFT)**. These concepts are described in detail in References 2 and 4. The digital data acquisition system you will use employs these techniques to compute power (and phase) spectra.
 
@@ -148,13 +126,13 @@ An example PSD is shown in Fig. 5 for an 80 Hz sine wave based on a DFT. Unlike 
 
 ​**Noise**
 
-Measured signals in ground experiments and flight tests (as well as other applications such as communications and controls) include noise from various sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models, however,  that can be appropriate in many situations. For example, **white noise** has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called **1/f noise** (or pink noise). In this case, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency. Both of these types of noise can be observed at the same time (as well as other noise types). For example, Fig. 6 shows a power spectrum (power spectral density, PSD vs frequency) with both 1/f and white noise components. Using these models, one can interpolate the noise at a frequency that has "real" signal, and estimate the **signal-to-noise ratio** (PSD of signal at a given frequency divided by the PSD of the estimated noise).
+Measured signals in ground experiments and flight tests (as well as other applications such as communications and controls) include noise from various sources. In the frequency domain, noise can have a very complicated structure. There are some simple noise models, however,  that can be appropriate in many situations. For example, **white noise** has a flat power spectrum, meaning it has the same power at every frequency over some wide range. Another type of noise observed in many systems, including electronics, music and many biological systems, is called $$\bm{1/f}$$ **noise** (or pink noise). In this case, the power spectrum (again over some wide frequency range) scales as the inverse of the frequency, i.e., the power of the noise at each frequency is inversely proportional to the frequency. Both of these types of noise can be observed at the same time (as well as other noise types). For example, Fig. 6 shows a power spectrum (power spectral density, PSD vs frequency) with both $$1/f$$ and white noise components. Using these models, one can interpolate the noise at a frequency that has "real" signal, and estimate the **signal-to-noise ratio** (PSD of signal at a given frequency divided by the PSD of the estimated noise).
 
 
 
 ![](.gitbook/assets/NoiseSpectrum.png)
 
-> **Figure 6.** Example noise spectrum consisting of a sum of white noise and 1/f noise (note log scaling of both axes).
+> **Figure 6.** Example noise spectrum consisting of a sum of white noise and $$1/f$$ noise (note log scaling of both axes).
 
 ### Sampling Theory and Aliasing
 
@@ -163,7 +141,7 @@ For most situations involving either computer generated or computer acquired dat
 For a given sampling rate, we might ask how accurately the discretely acquired data can reproduce the actual waveform being sampled. The answer depends on the frequency content of the waveform and a special frequency, called the _**Nyquist frequency**_ $$(f_N)$$, which is half the sampling frequency, i.e., $$f_N=f_s/2$$. If the waveform contains no components above the Nyqist frequency, then the waveform can be completely determined by the sampled data (assuming no errors in the measurement).\*\*\* This is known as the _**Nyquist/Nyquist-Shannon Sampling Theorem**_.
 
 {% hint style="info" %}
-\*\*\*A waveform that has information in only a limited range of frequencies is called **bandwidth limited**. Due to phase ambiguity, the sampling frequency should actually be more than twice the maximum frequency in the waveform. For example, a sine wave sampled at 0, $$\pi$$, $$2\pi$$, etc. would always have a 0 result and could be confused with a null function.
+\*\*\*A waveform that has information in only a limited range of frequencies is called **bandwidth limited**. Due to phase ambiguity, the sampling frequency should actually be more than twice the maximum frequency in the waveform. For example, a sine wave sampled at $$0$$, $$\pi$$, $$2\pi$$, etc. would always have a 0 result and could be confused with a null function.
 {% endhint %}
 
 As a simple example, consider a single sine wave. If we know we are dealing with a single frequency sine wave, it takes at least two measurements per period to determine its frequency, which means we must sample at twice the sine wave’s frequency. If we sample any slower, we actually infer a lower frequency than the actual frequency of the sine wave (you will see this in the lab). This process, by which information at a higher frequency shows up at a lower frequency is known as _**aliasing**_**.**
@@ -172,7 +150,7 @@ Aliasing occurs for any sampled waveform having components with frequencies abov
 
 ### Digital Data Acquisition Systems
 
-Data will be acquired with a standalone digital data acquisition system (**DAQ**) that communicates with your computer through a USB connection and using a LabView™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 7).
+Data will be acquired with a standalone digital data acquisition system (**DAQ**), LabJack™ T4, that communicates with your computer through a USB connection and using a LabVIEW™ software interface. Most DAQs can be connected to more than one input source; each signal (e.g., a voltage) is connected to one channel of the DAQ. A typical DAQ consists of a multiplexer, a sample-and-hold device, an amplifier, an analog-to-digital converter, a memory buffer, a microcontroller, and an interface to a computer (see Figure 7).
 
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
@@ -202,7 +180,7 @@ Multiple signal inputs are recorded by using the MUX to cycle through each of th
 
 > **Figure 9.** Schematic of simultaneous sampling, digital data acquisition system.
 
-In this lab, you control the data acquisition process through a software interface called a LabView _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
+In this lab, you control the data acquisition process through a software interface called a LabVIEW _virtual instrument_ (VI). The VI creates a display on the computer screen that lets you think of the data acquisition system as a box with “knobs”, “dials”, and other displays. For this experiment, the VI allows you to control parameters such as the minimum and maximum voltages read by the DAQ, the sampling rate$$(f_s)$$, and the number of samples recorded.
 
 ### Sampling/DAQ Terminology
 
@@ -224,16 +202,17 @@ The following terminology is commonly used in DAQ systems, and you should become
 The following tasks should be accomplished during the lab.&#x20;
 
 1. **Pickup DIY kit:**
-   * _Labjack DAQ, USB cord, 3.5 mm audio jack cord_
-   * _Microphone and cord_
+   * _LabJack T4 DAQ, USB cord, 3.5 mm audio jack_
+   * _Microphone_
+   * _Jumper wires_
    * _Watch video on components and connections_
 2. **Download and software:**
-   * Watch video on installing software and testing system
-   * Download and install executable Labview VI&#x20;
+   * Watch video on installing LabJack T4 software and testing system
+   * Download and install executable LabVIEW VI&#x20;
    * Download mp3 tracks to your computer or mobile device
 3. **Test your devices:**
    * Connect DAQ to computer using USB cable
-   * Connect device audio output to DAQ using 3.5mm audio jack cable
+   * Connect device audio output to DAQ using 3.5mm audio jack and jumper wires
    * Test your system - if you have trouble, ask TA for help
 
 **Week 2**
@@ -250,7 +229,7 @@ You will still attend your lab session at your regularly scheduled time, this we
      * [ ] &#x20;Write down your guess for the waveform on each track (it is okay to guess wrong)&#x20;
 2. **Setup DAQ system**
    * Connect DAQ to computer using USB cable
-   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack cable
+   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack and jumper wires
    * Open the GTAESimpleDAQ.exe application
 3. **Use DAQ to perform waveform identification**
    * &#x20;Start application (by hitting Run button)
@@ -278,7 +257,7 @@ You will still attend your lab session at your regularly scheduled time, this we
       * [ ] Compare the heights (power) of each peak in the power spectrum; which waveform has more power at high frequencies?&#x20;
       * [ ] Think of any reasons why that waveform should contain more high frequency content based on its shape
 5. **Examine quantization error**
-   * Play the track with the square wave, and make sure the settings are: _Continuous, Sampling Rate_=10,000_, Record Length_ = 1000,  all axes have _Autoscale=on_ except time plot, set maximum limit on time plot x-axis to 0.01 seconds
+   * Play the track with the square wave, and make sure the settings are: _Continuous, Sampling Rate_ = 10,000_, Record Length_ = 1000,  all axes have _Autoscale=on_ except time plot, set maximum limit on time plot x-axis to 0.01 seconds
    * Observe both the time plot and power spectrum as you reduce the output volume on the device playing the tracks
      * [ ] What changes do you observe when the volume is set very low?
 6. **Explore effects of record length and sampling rate on power spectrum**
@@ -288,11 +267,11 @@ You will still attend your lab session at your regularly scheduled time, this we
    * FIND:&#x20;
      * [ ] the number of discrete points in the power spectrum (not the number of actual frequencies in the signal, but how many individual points are in the power spectrum plot
        * _Hint:  the points are connected by straight line segments in the plot_
-     * [ ] the **Frequency Resolution** (=the frequency spacing between two points in the power spectrum)
-     * [ ] the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
+     * [ ] the **Frequency Resolution** (= the frequency spacing between two points in the power spectrum)
+     * [ ] the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); Note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
        * _Tip: It may help to toggle from Continuous to Hold to capture one record while you examine the power spectrum_
    * Repeat the above 3 FINDs for a few longer Record Lengths (always pick an even number of samples)
-   * Set the _Sample Rate_=8000 S/s, _Record Length_=4 S and repeat the FINDs&#x20;
+   * Set the _Sample Rate_ = 8000 S/s, _Record Length_ = 4 S and repeat the FINDs&#x20;
      * [ ] Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
 7. **Observe aliasing**
    * Find and play the track containing the 3 sine waves
@@ -304,16 +283,16 @@ You will still attend your lab session at your regularly scheduled time, this we
    * Continue increasing the _Sampling Rate_ until you get to at least 25,000 S/s &#x20;
      * [ ] As you do this, observe the locations of the peaks on the frequency axis&#x20;
 8. **Examine noise**
-   * Play the each of the two tracks you identified as sine waves with noise
+   * Play each of the two tracks you identified as sine waves with noise
      * [ ] What type of noise is present?
-     * [ ] Estimate the the signal-to-noise ratio of the signal for each track. &#x20;
+     * [ ] Estimate the signal-to-noise ratio of the signal for each track. &#x20;
 9. **Explore the implementation of a low pass filter**
    * Play the track containing the sum of three sine waves&#x20;
    * Set the _Sampling Rate_ = 22 kS/s and _Record Length_ = 1000 S
-   * Set the _Spectrum Display Settings_=Amplitude-Log&#x20;
-   * In the time plot, _Autoscale_=off for the x-axis and set the maximum on the axis to 0.005 s
+   * Set the _Spectrum Display Settings_ = Amplitude-Log&#x20;
+   * In the time plot, _Autoscale_ = off for the x-axis and set the maximum on the axis to 0.005 s
      * _Tip: the number on the axis will show up as 0.01 because the display will round it to 2 decimal places, but the value really is 0.005s_&#x20;
-   * Set the _Filter_ = on, select from the pull down menu _Low Pass,_ select from the next pull down menu _Butterworth_, __ set _Low Cutoff Frequency_ = 11,000 Hz by typing in the value
+   * Set the _Filter_ = on, select from the pull-down menu _Low Pass,_ select from the next pull-down menu _Butterworth_, __ set _Low Cutoff Frequency_ = 11,000 Hz by typing in the value
    * Paying attention to both the time plot and power spectrum of both filtered and unfiltered signals, keep reducing the cutoff frequency until you obtain a filtered signal that has eliminated the highest frequency sine wave
      * [ ] What cutoff frequency was required to achieve this?
      * [ ] Did the filtering impact either of the other two sine waves?
@@ -342,8 +321,8 @@ As part of this experiment - like any real-world test or experiment, you will ne
      * _Hint: a Tone Generator will output a sine wave of a single frequency on the audio channel of your device_
    * Set the volume on the Tone Generator app to at least 75% of maximum&#x20;
 2. **Setup DAQ**&#x20;
-   * Connect DAQ to computer using USB cable
-   * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack cable
+   * Connect DAQ to the computer using the USB cable
+   * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack and jumper wires
    * Open the GTAESimpleDAQ.exe application
    * Start application (by hitting Run button)
 3. **Record and save single tone output**
@@ -353,7 +332,7 @@ As part of this experiment - like any real-world test or experiment, you will ne
    * Save the data using \_\_\_\_\_\_\_????
 4. **Repeat Step 3 for at least 9 more tone frequencies ranging from 20 Hz to 10,000 Hz**
 5. **Setup DAQ/microphone**
-   * Remove 3.5mm audio cable from both your device and the DAQ
+   * Remove 3.5mm audio jack and jumper wires from both your device and the DAQ
    * Install microphone \_\_\_\_\_?
 6. &#x20;**Record microphone data**
    * Use the Tone Generator to play each tone frequency from Steps 3 and 4 through your device's speakers
