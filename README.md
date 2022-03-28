@@ -202,13 +202,13 @@ The following terminology is commonly used in DAQ systems, and you should become
 The following tasks should be accomplished during the lab.&#x20;
 
 1. **Pickup DIY kit:**
-   * _LabJack T4 DAQ, USB cord, 3.5 mm audio jack_
+   * _LabJack™ T4 DAQ, USB cord, 3.5 mm audio jack_
    * _Microphone_
    * _Jumper wires_
    * _Watch video on components and connections_
 2. **Download and software:**
-   * Watch video on installing LabJack T4 software and testing system
-   * Download and install executable LabVIEW VI&#x20;
+   * Watch video on installing LabJack™ T4 software and testing system
+   * Download and install executable LabVIEW™ VI&#x20;
    * Download mp3 tracks to your computer or mobile device
 3. **Test your devices:**
    * Connect DAQ to computer using USB cable
