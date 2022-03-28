@@ -255,9 +255,9 @@ You will still attend your lab session at your regularly scheduled time, this we
 3. **Use DAQ to perform waveform identification**
    * &#x20;Start application (by hitting Run button)
    * Set the data acquisition and display parameters to:
-     * Sampling rate = 25,000 S/s
-     * Record length = 10,000 S
-     * Autoscale = on (for all plot axes)&#x20;
+     * _Sampling rate_ = 25,000 S/s
+     * _Record length_ = 10,000 S
+     * _Autoscale_ = on (for all plot axes)&#x20;
      * All other settings should be okay based on the defaults when you start the application
    * Use your device to play one track at a time, in repeat mode
    * Observe the time plot and power spectrum; you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts)
@@ -284,7 +284,7 @@ You will still attend your lab session at your regularly scheduled time, this we
 6. **Explore effects of record length and sampling rate on power spectrum**
    * Play the track containing the 1 kHz sine wave
    * Set the _Sampling Rate_ = 4000 S/s and the _Record Length_ = 4 S&#x20;
-   * Make sure the power spectrum is set to Autoscale for both x and y axes
+   * Make sure the power spectrum is set to _Autoscale_ for both x and y axes
    * FIND:&#x20;
      * [ ] the number of discrete points in the power spectrum (not the number of actual frequencies in the signal, but how many individual points are in the power spectrum plot
        * _Hint:  the points are connected by straight line segments in the plot_
@@ -334,32 +334,29 @@ You will still attend your lab session at your regularly scheduled time, this we
 
 After passing your in-lab assessment, you and your partner should meet and decide what experiment you want to perform with your DAQ/microphone systems. As part of that experiment, you will need to first **validate/test your microphone system**. The following procedure describes this process.
 
-1. **Setup nd Tone Generaor**
-   * Connect DAQ to computer using USB cable
-   * Locate any **Tone Generator** app on the web (a Tone Generator will output a sine wave of a single frequency)
+1. **Setup Tone Generator**
+   * Find a device (computer, tablet, etc.) with a wired audio output jack
+   * Locate any online **Tone Generator** app on the web
+     * _Hint: a Tone Generator will output a sine wave of a single frequency on the audio channel of your device_
    * Set the volume on the Tone Generator app to at least 75% of maximum&#x20;
+2. **Setup DAQ**&#x20;
+   * Connect DAQ to computer using USB cable
    * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack cable
    * Open the GTAESimpleDAQ.exe application
    * Start application (by hitting Run button)
-2.
-
-    * Connect DAQ to computer using USB cable
-    * Locate any **Tone Generator** app on the web (a Tone Generator will output a sine wave of a single frequency)
-    * Set the volume on the Tone Generator app to at least 75% of maximum&#x20;
-    * Connect audio output of the device you are using to play the Tone Generator to the DAQ using the 3.5mm audio jack cable
-    * Open the GTAESimpleDAQ.exe application
-    * Start application (by hitting Run button)
-
-    **Setup DAQ nd Tone Generaor**
-
-    **Record and save op**
-
-    * Use the Tone Generator to output a tone at 200 Hz
-    * Set the Sampling Rate Continuous/Hold button if you want to freeze the display   &#x20;
-3.
-   * Connect DAQ to computer using USB cable
-   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack cable
-   * Open the GTAESimpleDAQ.exe application
+3. **Record and save single tone output**
+   * Use the Tone Generator to output a tone at 200 Hz
+   * Set the _Sampling Rate_ and _Record Length_ to appropriate values&#x20;
+   * Set the _Continuous/Hold_ button to Hold to capture a record of this tone   &#x20;
+   * Save the data using \_\_\_\_\_\_\_????
+4. **Repeat Step 3 for at least 9 more tone frequencies ranging from 20 Hz to 10,000 Hz**
+5. **Setup DAQ/microphone**
+   * Remove 3.5mm audio cable from both your device and the DAQ
+   * Install microphone \_\_\_\_\_?
+6. &#x20;**Record microphone data**
+   * Use the Tone Generator to play each tone frequency from Steps 3 and 4 through your device's speakers
+   * For each tone, record the microphone output with the DAQ using the same sampling setting used for that tone in Steps 3-4
+   * Save the record for each tone using \_\_\_\_\_????
 
 more later
 
