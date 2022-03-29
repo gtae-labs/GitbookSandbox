@@ -200,29 +200,29 @@ The following terminology is commonly used in DAQ systems, and you should become
 The following tasks should be accomplished during the lab.&#x20;
 
 1. **Pickup DIY kit:**
-   * _LabJack™ T4 DAQ, USB cord, 3.5 mm audio jack_
-   * _Microphone_
-   * _Jumper wires_
-   * _Watch video on components and connections_
+   * _LabJack™ T4 DAQ_, USB cord, 3.5 mm audio jack
+   * Microphone
+   * Jumper wires
+   * Watch video on components and connections
 2. **Download and install software:**
-   * Watch video on installing LabJack™ T4 software and testing system
-   * Download and install executable LabVIEW™ VI&#x20;
+   * Watch video on installing and running software&#x20;
+   * Download and install _LabJack™ T4_ driver software and executable application _GTAESimpleDAQ.exe_ (built using LabVIEW™)
    * Download mp3 tracks to your computer or mobile device
 3. **Test your devices:**
    * Connect DAQ to computer using USB cable
-   * Connect device audio output to DAQ using 3.5mm audio jack and jumper wires
-   * Test your system - if you have trouble, ask TA for help
+   * Connect device audio output to DAQ using the 3.5mm audio jack and two jumper wires (as instructed in the video you watched)
+   * Test your system based on these insturctions - if you have trouble, ask TA for help
 
 **Week 2**
 
 At a minimum, you must complete the following tasks, but you are free to try other things to learn about digital data acquisition, sampling theory, and frequency content of signals. **Keep notes on what you observe or find as you do each task**.
 
-You can work on this where ever and whenever you want (but before your regularly scheduled lab session). Also, you must **work on these task by yourself**. If you have trouble with the equipment or do not understand the required tasks, you can reach out to the TAs during office hours or using \_\_\_\_\_\_ (Canvas, Piazza???)
+You can work on this where ever and whenever you want (but before your regularly scheduled lab session). Also, you must **work on these task by yourself**. If you have trouble with the equipment or do not understand the required tasks, you can reach out to the TAs during office hours or using Piazza.
 
 You will still attend your lab session at your regularly scheduled time, this week - BRING your DAQ/computer system with you. You will be asked to demonstrate certain things to the TAs and answer some questions based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab time to work on the material, and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
 
 1. **Perform initial waveform identification**
-   * There are 12 audio tracks. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(At) sin(Bt), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(At), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
+   * There are 12 audio tracks. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(_At_) x sin(_Bt_), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(_At)_), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
    * Play each track on your device, listen to it
      * [ ] &#x20;Write down your guess for the waveform on each track (it is okay to guess wrong)&#x20;
 2. **Setup DAQ system**
