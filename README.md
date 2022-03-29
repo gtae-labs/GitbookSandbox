@@ -154,7 +154,7 @@ Data will be acquired with a standalone digital data acquisition system (**DAQ**
 
 ![](<.gitbook/assets/DAQ schematic 1.png>)
 
-**Figure 7.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.=
+**Figure 7.** Schematic of multiplexed, sequential sampling, digital data acquisition system and its connection to a computer.
 
 The _**multiplexer**_** ** (MUX) is a switch that connects one of a number of input channels (usually numbered starting at 0) to the _**sample-and-hold**_** ** (S/H). The input voltage on the channel switched by the MUX “charges up” the sample-and-hold during some time interval, which is a fraction of the sampling period (the time between samples). This circuit is then disconnected from the input voltage, and some of the stored charge is drained from it. The amount of charge leaving during this time is proportional to the original input voltage. The output of the S/H is amplified and then converted to a digital value by the _**analog-to-digital converter**_** ** (ADC). The digital result is then moved to the buffer memory, and communicated to the computer.&#x20;
 
@@ -327,9 +327,9 @@ However, as part of this experiment - like any real-world test or experiment, yo
    * Use the Tone Generator to output a tone at 200 Hz
    * Set the _Sampling Rate_ and _Record Length_ to appropriate values&#x20;
    * Set the _Continuous/Hold_ button to Hold to capture a record of this tone   &#x20;
-   * v
-     * Tip: the data will be saved in a subfolder called Saved Data in the folder you had open when you started the application; also the filename will have a date-time-stamp appended on the end
-     * Also - do not include a file extension, it will be saved as a ".txt" file
+   * In the window titled _Data Saving_, enter a filename in the _Filename_ text box, then click on the _Power Spectrum Save_ button
+     * _Tip: the data will be saved in a subfolder called Saved Data in the folder you had open when you started the application; also the filename will have a date-time-stamp appended on the end_
+     * _Tip: do not include a file extension in your file, it will be saved as a ".txt" file_
 4. **Repeat Step 3 for at least 9 more tone frequencies ranging from 20 Hz to 10,000 Hz**
 5. **Setup DAQ/microphone**
    * Remove 3.5mm audio jack and jumper wires from both your device and the DAQ
