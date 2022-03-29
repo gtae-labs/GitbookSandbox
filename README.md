@@ -204,7 +204,7 @@ The following tasks should be accomplished during the lab.&#x20;
    * _Microphone_
    * _Jumper wires_
    * _Watch video on components and connections_
-2. **Download and software:**
+2. **Download and install software:**
    * Watch video on installing LabJack™ T4 software and testing system
    * Download and install executable LabVIEW™ VI&#x20;
    * Download mp3 tracks to your computer or mobile device
