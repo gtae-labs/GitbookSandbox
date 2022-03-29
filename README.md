@@ -202,7 +202,7 @@ The following tasks should be accomplished during the lab.&#x20;
 1. **Pickup DIY kit:**
    * _LabJack™ T4 DAQ_, USB cord, 3.5 mm audio jack
    * Microphone
-   * Jumper wires
+   * Jumper wires and screwdrivers
    * Watch video on components and connections
 2. **Download and install software:**
    * Watch video on installing and running software&#x20;
@@ -211,7 +211,7 @@ The following tasks should be accomplished during the lab.&#x20;
 3. **Test your devices:**
    * Connect DAQ to computer using USB cable
    * Connect device audio output to DAQ using the 3.5mm audio jack and two jumper wires (as instructed in the video you watched)
-   * Test your system based on these insturctions - if you have trouble, ask TA for help
+   * Test your system based on these instructions - if you have trouble, ask TA for help
 
 **Week 2**
 
@@ -339,13 +339,20 @@ However, as part of this experiment - like any real-world test or experiment, yo
    * For each tone, record the microphone output with the DAQ using the same sampling setting used for that tone in Steps 3-4
    * Save the record for each tone by first entering a filename in the _Filename_ text box (or you can use the name already there), then click on the _Power Spectrum Save_ button&#x20;
 
+When you are done with your experiment:
+
+1. **Return equipment to the lab**
+   * Disconnect the jumper wires from the microphone and DAQ, and the jumper wires from the 3.5mm audio jack
+   * Carefully replace all the equipment (including wires and screwdrivers) in the original DIY kit box
+   * Return your DIY kit box to the lab at your designated lab time during Week 3
+
 &#x20;
 
 ## Data to be Taken
 
 ### **For Week 2**
 
-1. A copy of your notes taken while you were doing the required tasks (so handwritten notes or printed notes). The notes should contain the data, observations and answers to the questions posed in the Procedure section. Your notes do need to be legible, but there is no special format requirement.&#x20;
+1. Notes taken while you were doing the required tasks (so handwritten notes or digital notes). The notes should contain the data, observations and answers to the questions posed in the Procedure section. Your notes do need to be legible, but there is no special format requirement.&#x20;
 
 ### For Week 3
 
@@ -367,7 +374,7 @@ However, as part of this experiment - like any real-world test or experiment, yo
 **Note: This will be presented by your two-person team as an Oral Report, so you must follow instructions on how to prepare the Oral Report on the Canvas course page.**&#x20;
 
 1. Plot of the relative response of the microphone(-speaker) system as a function of frequency.
-2. Results you obtain the experiment you designed.
+2. Results you obtain from the experiment you designed.
 
 ## **Further Reading**
 
