@@ -227,7 +227,7 @@ You will still attend your lab session at your regularly scheduled time, this we
      * [ ] &#x20;Write down your guess for the waveform on each track (it is okay to guess wrong)&#x20;
 2. **Setup DAQ system**
    * Connect DAQ to computer using USB cable
-   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack and jumper wires
+   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack and two jumper wires (as instructed in the video you watched)
    * Open the GTAESimpleDAQ.exe application
 3. **Use DAQ to perform waveform identification**
    * &#x20;Start application (by hitting Run button)
@@ -327,15 +327,17 @@ However, as part of this experiment - like any real-world test or experiment, yo
    * Use the Tone Generator to output a tone at 200 Hz
    * Set the _Sampling Rate_ and _Record Length_ to appropriate values&#x20;
    * Set the _Continuous/Hold_ button to Hold to capture a record of this tone   &#x20;
-   * Save the data using \_\_\_\_\_\_\_????
+   * v
+     * Tip: the data will be saved in a subfolder called Saved Data in the folder you had open when you started the application; also the filename will have a date-time-stamp appended on the end
+     * Also - do not include a file extension, it will be saved as a ".txt" file
 4. **Repeat Step 3 for at least 9 more tone frequencies ranging from 20 Hz to 10,000 Hz**
 5. **Setup DAQ/microphone**
    * Remove 3.5mm audio jack and jumper wires from both your device and the DAQ
-   * Install microphone \_\_\_\_\_?
+   * Connect three jumper wires to the screw terminal on the microphone and to the GND, VS and AIN0 input connections on the DAQ (as instructed in the video you watched)
 6. &#x20;**Record microphone data**
    * Use the Tone Generator to play each tone frequency from Steps 3 and 4 through your device's speakers
    * For each tone, record the microphone output with the DAQ using the same sampling setting used for that tone in Steps 3-4
-   * Save the record for each tone using \_\_\_\_\_????
+   * Save the record for each tone by first entering a filename in the _Filename_ text box (or you can use the name already there), then click on the _Power Spectrum Save_ button&#x20;
 
 &#x20;
 
