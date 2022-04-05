@@ -195,49 +195,83 @@ The following terminology is commonly used in DAQ systems, and you should become
 
 ## Procedure
 
-**Week 1**&#x20;
+### **Week 1**&#x20;
 
-The following tasks should be accomplished during the lab.&#x20;
+The following tasks should be accomplished _**during**_ the lab. The intention of this lab is to make sure you verify all items in your kit functions correctly and that you have a basic understanding of how they function.&#x20;
 
-1. **Pickup DIY kit:**
-   * _LabJack™ T4 DAQ_, USB cord, 3.5 mm audio jack
-   * Microphone
-   * Jumper wires and screwdrivers
-   * Watch video on components and connections
-2. **Download and install software:**
-   * Watch video on installing and running software&#x20;
-   * Download and install _LabJack™ T4_ driver software and executable application _GTAESimpleDAQ.exe_ (built using LabVIEW™)
-   * Download mp3 tracks to your computer or mobile device
-3. **Test your devices:**
-   * Connect DAQ to computer using USB cable
-   * Connect device audio output to DAQ using the 3.5mm audio jack and two jumper wires (as instructed in the video you watched)
-   * Test your system based on these instructions - if you have trouble, ask TA for help
+1. **Kit preparation**
+   * Obtain a Digital Sampling kit from your TAs
+   * Check that the contents of your kit match the box label; if not, obtain any replacement parts from a TA
+   * Register your LabJack T4 serial number with your TAs
+2. **Software preparation:**
+   * Go to the [LabJack software installation page ](https://labjack.com/support/software/installers/ljm)and download the "Release" version for Windows or Mac operating system (these are the only two we support)
+   * Run the installer and follow all steps to install in your preferred location
+   * Download and unzip the GTAE Simple DAQ installation files for your Windows or Mac operating system ([found in the Software and Files section below](./#software-and-files))
+   * Run the installer and follow all steps to install in your preferred location
+   * Restart your machine
+3. **Verify your LabJack T4 DAQ functions correctly:**
+   * Connect your LabJack T4 DAQ to your computer using the provided USB cable
+   * Open the LabJack Kipling software that was just installed, and connect to the T4 by clicking on the green USB button (refresh devices if it wasn't found)
+   * Go to the Dashboard tab, where you will see a schematic of the T4 with live display of the inputs and output pins. Perform the following "loopback" tests to make sure your DAQ is functioning correctly:
+     1. By default, AIN0 to AIN3 should be reading around 1.4V&#x20;
+     2. With one of the jumper wires and larger screwdriver from your kit, connect AIN0 to a nearby GND pin; the AIN0 voltage should now go to around 0V (the pin is being pulled to ground)
+     3. Now connect AIN0 to VS (supply voltage); since VS is coming from your USB port you should be reading around 5.1V
+     4. Now set DAC0 and DAC1 to 2 different voltages less than 5V (DAC means Digital-to-Analog-Converter i.e. these pins are analog voltage outputs); connect AIN0 to each of them, verifying that the measured voltages match the output voltages
+   * Disconnect wire and close Kipling
+4. **Verify your peripherals function correctly**:
+   * Open GTAE Simple DAQ, choose a save data folder, and the application should now be running. <mark style="color:orange;">**!!! NOTE - Sometimes the SimpleDAQ will throw an error on startup or mid-acquisition. If this happens, restart the software and power cycle (unplug and plug back in) the DAQ !!!**</mark>
+   * Turn on Autoscale for both axes of both plots; Time History and Power Spectrum. You should now see a real time plot of channel AIN0 with a voltage of around 1.4V plus or minus a small amount of noise
+   * Test your 3.5mm audio breakout adapter:
+     * Retrieve the breakout adapter and, with one jumper wire, connect the L terminal to your DAQ's AIN0 port (note that you may need to open up the screw terminal on the DAQ before being able to insert the wire)
+     * With another wire, connect the ground terminal (far right) to your DAQ's GND port (the one next to AIN0)
+     * Ensure you have good wired connections by **gently** tugging on them to ensure they don't come loose. Be careful not to bend the pins as they can snap fairly easily.
+     * Plug the audio breakout into your laptop/tablet/smartphone (any device that can play audio and access YouTube).
+     * Ensure that your operating system is set to play over the headphone jack (i.e. not your bluetooth headphones or in-built speakers).
+     * Set the YouTube video player to maximum volume and your device volume to roughly 50%
+     * Go to YouTube and find a "human hearing test" video [such as this one](https://youtu.be/H-iCZElJ8m0)
+     * With the video playing, observe what's happening in GTAE Simple DAQ; you should see a sine wave of increasing frequency both in the time history and as a shifting spike in the power spectrum that should match that shown in the YouTube video (until around 11  kHz when it will start to diverge)
+     * Adjust your device volume to observe the shifting amplitude of the signal
+     * Once you have verified correct functionality after a minute or two (don't play the whole video), stop the video, unplug the audio adapter and remove the wires from the adapter (don't remove them from the DAQ)
+   * Test your microphone:
+     * <mark style="color:red;">**!!! WARNING - the microphone has bare electronics on the back of the board which can result in damage if shorted with a metal tool or surface; be sure to handle carefully and away from metal when powered !!!**</mark>
+     * Retrieve the microphone and micro screwdriver from your kit
+     * Connect the GND port of the microphone to the GND port on your DAQ which should already have a wire connected (note that you may need to open up the screw terminal on the microphone before being able to insert the wire)
+     * Connect the OUT port of the microphone to the AIN0 port on your DAQ which should already have a wire connected
+     * Connect the VCC port of the microphone to the VS port of the DAQ with a new wire
+     * You should now see a rough waveform in GTAE Simple DAQ centered around roughly 2.5V. To stop the time history jumping around so much, turn off Y-Axis Autoscale and set the scale's maximum and minimum value you want to see. Do this by double-clicking on the highest and lowest and numbers on the axis (6V and 0V might be a good start but adjust as necessary)
+     * Test the microphone by generating some sounds of interest such as whistles, taps on the desk, talking, playing a tone from headphones, etc. Don't get the microphone too close to the noise source, it is quite sensitive. Bear in mind there will be lots of background noise so you may want to go somewhere quiet.
+     * Once you are satisfied the microphone is functioning correctly, unplug the DAQ, remove all wires from all terminals, and neatly pack everything back up into the box.
+5. **Before leaving the lab, understand the objectives and resources for the next 2 weeks:**
+   1. Read the following steps in this manual that outline what you must have completed prior to each lab session. Check with your TAs if you are unsure of anything.
+   2. A more in-depth explanation of GTAE Simple DAQ is given [at its dedicated webpage](https://gtae.gitbook.io/experimental/daq/gtae-simpledaq), including a short video on how to use the software.&#x20;
+   3. The [LabJack website](https://labjack.com/products/t4) is a great resource for understanding more about how the DAQ works, and what you can do with it.&#x20;
 
-**Week 2**
+### **Prior to Week 2**
 
-At a minimum, you must complete the following tasks, but you are free to try other things to learn about digital data acquisition, sampling theory, and frequency content of signals. **Keep notes on what you observe or find as you do each task**.
+By Week 2 lab, at a minimum, you must complete the following tasks, but you are free to try other things to learn about digital data acquisition, sampling theory, and frequency content of signals. **Keep notes on what you observe or find as you do each task**.
 
 You can work on this where ever and whenever you want (but before your regularly scheduled lab session). Also, you must **work on these task by yourself**. If you have trouble with the equipment or do not understand the required tasks, you can reach out to the TAs during office hours or using Piazza.
 
-You will still attend your lab session at your regularly scheduled time, this week - BRING your DAQ/computer system with you. You will be asked to demonstrate certain things to the TAs and answer some questions based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab time to work on the material, and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
+You will still attend your lab session at your regularly scheduled time, this week - **bring your DAQ/computer system with you**. You will be asked to demonstrate certain things to the TAs and answer some questions based on having done these tasks and learned the underlying concepts. If you can not do the required tasks or successfully answer the TAs questions, you can work during the lab time to work on the material, and be re-assessed by the TAs when you think you are ready. You have an unlimited number of attempts to pass the assessment, but only until the lab session ends.
 
-1. **Perform initial waveform identification**
-   * There are 12 audio tracks. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(_At_) x sin(_Bt_), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(_At)_), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
-   * Play each track on your device, listen to it
-     * [ ] &#x20;Write down your guess for the waveform on each track (it is okay to guess wrong)&#x20;
+{% embed url="https://youtu.be/Pd2yR1uOb48" %}
+Waveforms for identification
+{% endembed %}
+
+1. **Perform initial audible waveform identification**
+   * Directly above this list are 12 one-minute-long audio tracks collated into a single YouTube video. Each audio track contains a different periodic signal. These signals include: **single sine waves** (at different frequencies), a **sum of three sine waves** (each at a different frequency)**,** a **product of two sine waves** (e.g., sin(_At_) x sin(_Bt_), also known as amplitude modulation), **a sine wave of a sine wave** (e.g., sin(sin(_At)_), also known as frequency modulation), and periodic waveforms that are not sine waves: **square waves**, **triangle waves**, and **ramps**. Some tracks also have "noisy" versions of some of these waveforms.
+   * Play the video and, for each track on your device, listen to it and write down your guess for the waveform on each track (it is okay to guess wrong)&#x20;
 2. **Setup DAQ system**
-   * Connect DAQ to computer using USB cable
-   * Connect audio output of the device you are using to play the tracks to the DAQ using the 3.5mm audio jack and two jumper wires (as instructed in the video you watched)
-   * Open the GTAESimpleDAQ.exe application
-3. **Use DAQ to perform waveform identification**
-   * &#x20;Start application (by hitting Run button)
-   * Set the data acquisition and display parameters to:
+   * Following the steps from Week 1, configure your DAQ and 3.5mm audio breakout adapter so that your laptop/tablet/PC/smartphone can capture the waveforms in the above YouTube video <mark style="color:red;">**!!! WARNING - Some devices (usually PCs/laptops) do not have good sound cards, resulting in significant distortion of the waveform. You will know this is happening if you don't recognize any square/triangle/ramp waveforms in the subsequent steps. If this occurs, switch to a device designed more for sound playing such as a smartphone or tablet (check with other members of your group or friends if you don't have one). You could also download the tracks and import them to an MP3 player. If all else fails, contact a TA who will help you find an appropriate device !!!**</mark>
+   * In GTAE Simple DAQ, set the following settings:
      * _Sampling rate_ = 25,000 S/s
-     * _Record length_ = 10,000 S
-     * _Autoscale_ = on (for all plot axes)&#x20;
+     * _Record length_ = 1,000 S
+     * _Autoscale_ = initially ON for all axes (you will need to turn this off to adjust the time scale to "zoom in" during waveform identification)
      * All other settings should be okay based on the defaults when you start the application
-   * Use your device to play one track at a time, in repeat mode
-   * Observe the time plot and power spectrum; you should adjust the output/volume level to make sure most of the tracks have a peak voltage of a few volts)
+3. **Use DAQ to perform waveform identification**
+   * &#x20;Click Run to start&#x20;
+   * Play the YouTube video linked above. You will inevitably run out of time for each track as you only have a minute on each, so click back within the window as necessary.
+   * For each track, observe the time plot and power spectrum (adjust the output/volume level as required to see the waveforms clearly)
      * _Tip: With the waveform displayed as you like, you can toggle the Continuous/Hold switch to the Hold position so that the display just shows the last data captured (doesn't keep taking new samples)_
        * [ ] Identify the waveform on each track
        * [ ] Compare these to your original guesses made by listening to the tracks (you may find it helpful to remove the 3.5 mm connector from your device and listen again to the tracks that you misidentified)&#x20;
@@ -307,9 +341,13 @@ You will still attend your lab session at your regularly scheduled time, this we
     * Close the application&#x20;
     * If you are done using the DAQ please disconnect the cables from it before you transport or store it away
 
-**Week 3**
+### **During Week 2 lab**
 
-After passing your in-lab assessment, you and your partner should meet and decide what experiment(s) you want to perform with your DAQ/microphone system. You will want to find something that interests your team, but also allows you to explore some interesting issues regarding the frequency content or frequency analysis of your signals. So for your experiment, there are no procedures supplied.
+**Assessment TBD**
+
+### **Prior to Week 3**
+
+After passing your Week 2 in-lab assessment, you and your partner should meet and decide what experiment(s) you want to perform with your DAQ/microphone system. You will want to find something that interests your team, but also allows you to explore some interesting issues regarding the frequency content or frequency analysis of your signals. So for your experiment, there are no procedures supplied.
 
 However, as part of this experiment - like any real-world test or experiment, you will need to first **validate/characterize your equipment - in this case the microphone system**. The idea is to measure how well the microphone responds at various frequencies. The following procedure describes this latter process.
 
@@ -339,7 +377,7 @@ However, as part of this experiment - like any real-world test or experiment, yo
    * For each tone, record the microphone output with the DAQ using the same sampling setting used for that tone in Steps 3-4
    * Save the record for each tone by first entering a filename in the _Filename_ text box (or you can use the name already there), then click on the _Power Spectrum Save_ button&#x20;
 
-When you are done with your experiment:
+### During Week 3 lab
 
 1. **Return equipment to the lab**
    * Disconnect the jumper wires from the microphone and DAQ, and the jumper wires from the 3.5mm audio jack
@@ -389,4 +427,14 @@ When you are done with your experiment:
     ​
 4. W. H. Press, S. A. Teukolsky, W. T. Vetterling and B. P. Flanner\_, Numerical Recipes - The Art of Scientific Computing\_, 2nd ed., Cambridge University Press, 1992.
 
-**​**
+## Software and Files
+
+### GTAE SimpleDAQ
+
+Navigate to the [software release folder here](https://gtvault-my.sharepoint.com/:f:/g/personal/lwhitcher3\_gatech\_edu/Ehdcou3ZwTtHkTg-GSmOt4MBTMHbgwIERucGrJikIp8cPw?e=dgkIkg), logging in with your GT credentials, and download the correct version for your operating system. You can also download and use the LabView source files but you will need a full LabView install on your machine for this.
+
+### Waveform files
+
+{% file src=".gitbook/assets/AllTracks V1.0.zip" %}
+Waveform Tracks
+{% endfile %}
