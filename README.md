@@ -204,9 +204,9 @@ The following tasks should be accomplished _**during**_ the lab. The intention o
    * Check that the contents of your kit match the box label; if not, obtain any replacement parts from a TA
    * Register your LabJack T4 serial number with your TAs
 2. **Software preparation:**
-   * Go to the [LabJack software installation page ](https://labjack.com/support/software/installers/ljm)and download the "Release" version for Windows or Mac operating system (these are the only two we support)
+   * Go to the [LabJack software installation page ](https://labjack.com/support/software/installers/ljm)and download the "Release" version for your operating system
    * Run the installer and follow all steps to install in your preferred location
-   * Download and unzip the GTAE Simple DAQ installation files for your Windows or Mac operating system ([found in the Software and Files section below](./#software-and-files))
+   * Download and unzip the GTAE Simple DAQ installation files ([found in the Software and Files section below](./#software-and-files))
    * Run the installer and follow all steps to install in your preferred location
    * Restart your machine
 3. **Verify your LabJack T4 DAQ functions correctly:**
