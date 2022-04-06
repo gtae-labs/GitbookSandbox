@@ -195,9 +195,17 @@ The following terminology is commonly used in DAQ systems, and you should become
 
 ## Procedure
 
-### **Mac Users**
+### **Non-Windows Users**
 
-The software for this lab currently only works on Windows, but has successfully been run on Parallels and Bootcamp. If you don't have access to these options, you will need to check out a loaner Windows laptop from the library. Follow this guidance:
+The software for this lab currently only works on Windows, and cannot be made to work for Mac or any other OS this leaves Mac users with the following options that we have tested and verified:
+
+* Use the in-built Bootcamp software (Intel chip and Windows license key required)
+* Install and use Parallels ($39.99 student license, Windows license key required)&#x20;
+* Borrow a Windows machine
+
+#### Borrowing from the library
+
+If you don't have the ability to borrow a Windows machine from a peer, you will need to check out a loaner Windows laptop from the library. Follow this guidance:
 
 * Library laptops can only be checked out for **4 hours** at a time. However, they can be renewed at the library for another 4 hours once per day.
 * GT-OIT has programmed the machines to fully reset to their nominal state if it is shut down or restarted. Therefore, ignore any instructions to restart the machine after software installation. Instead, select **RESTART LATER.**
