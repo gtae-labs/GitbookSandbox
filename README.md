@@ -199,7 +199,7 @@ The following terminology is commonly used in DAQ systems, and you should become
 
 The software for this lab currently only works on Windows, but has successfully been run on Parallels and Bootcamp. If you don't have access to these options, you will need to check out a loaner Windows laptop from the library. Follow this guidance:
 
-* Library laptops can only be checked out for **4 Hours** at a time. However, they can be immediately checked out once checked back in.&#x20;
+* Library laptops can only be checked out for **4 hours** at a time. However, they can be renewed at the library for another 4 hours once per day.
 * GT-OIT has programmed the machines to fully reset to their nominal state if it is shut down or restarted. Therefore, ignore any instructions to restart the machine after software installation. Instead, select **RESTART LATER.**
 * When you return the laptop to the library but immediately check out again to extend your time, try and check back out the same machine, else you will need to repeat the installation.
 * Remember to send yourself any saved data before returning the laptop.
@@ -221,7 +221,8 @@ The following tasks should be accomplished _**during**_ the lab. The intention o
    * Restart your machine
 3. **Verify your LabJack T4 DAQ functions correctly:**
    * Connect your LabJack T4 DAQ to your computer using the provided USB cable
-   * Open the LabJack Kipling software that was just installed, and connect to the T4 by clicking on the green USB button (refresh devices if it wasn't found)
+   * Open LabJack's Kipling software that was just installed, and connect to the T4 by clicking on the green USB button (refresh devices if it wasn't found)
+     * <mark style="color:yellow;">!!! NOTE - If your search bar doesn't find it, navigate to Kipling under the LabJack folder after pressing the Windows Start icon !!!</mark>
    * Go to the Dashboard tab, where you will see a schematic of the T4 with live display of the inputs and output pins. Perform the following "loopback" tests to make sure your DAQ is functioning correctly:
      1. By default, AIN0 to AIN3 should be reading around 1.4V&#x20;
      2. With one of the jumper wires and larger screwdriver from your kit, connect AIN0 to a nearby GND pin; the AIN0 voltage should now go to around 0V (the pin is being pulled to ground)
@@ -251,7 +252,7 @@ The following tasks should be accomplished _**during**_ the lab. The intention o
      * Connect the GND port of the microphone to the GND port on your DAQ which should already have a wire connected (note that you may need to open up the screw terminal on the microphone before being able to insert the wire)
      * Connect the OUT port of the microphone to the AIN0 port on your DAQ which should already have a wire connected
      * Connect the VCC port of the microphone to the VS port of the DAQ with a new wire
-     * You should now see a rough waveform in GTAE Simple DAQ centered around roughly 2.5V. To stop the time history jumping around so much, turn off Y-Axis Autoscale and set the scale's maximum and minimum value you want to see. Do this by double-clicking on the highest and lowest and numbers on the axis (6V and 0V might be a good start but adjust as necessary)
+     * You should now see a rough waveform in GTAE Simple DAQ centered around roughly 2.5V. To stop the time history jumping around so much, turn off Y-Axis Autoscale and set the scale's maximum and minimum directly. Do this by double-clicking on the highest and lowest and numbers on the axis (6V and 0V might be a good start but adjust as necessary)
      * Test the microphone by generating some sounds of interest such as whistles, taps on the desk, talking, playing a tone from headphones, etc. Don't get the microphone too close to the noise source, it is quite sensitive. Bear in mind there will be lots of background noise so you may want to go somewhere quiet.
      * Once you are satisfied the microphone is functioning correctly, unplug the DAQ, remove all wires from all terminals, and neatly pack everything back up into the box.
 5. **Before leaving the lab, understand the objectives and resources for the next 2 weeks:**
