@@ -195,11 +195,21 @@ The following terminology is commonly used in DAQ systems, and you should become
 
 ## Procedure
 
+### **Mac Users**
+
+The software for this lab currently only works on Windows, but has successfully been run on Parallels and Bootcamp. If you don't have access to these options, you will need to check out a loaner Windows laptop from the library. Follow this guidance:
+
+* Library laptops can only be checked out for **4 Hours** at a time. However, they can be immediately checked out once checked back in.&#x20;
+* GT-OIT has programmed the machines to fully reset to their nominal state if it is shut down or restarted. Therefore, ignore any instructions to restart the machine after software installation. Instead, select **RESTART LATER.**
+* When you return the laptop to the library but immediately check out again to extend your time, try and check back out the same machine, else you will need to repeat the installation.
+* Remember to send yourself any saved data before returning the laptop.
+* Once you've acquired the laptop, follow the instructions below as normal.
+
 ### **Week 1**&#x20;
 
 The following tasks should be accomplished _**during**_ the lab. The intention of this lab is to make sure you verify all items in your kit functions correctly and that you have a basic understanding of how they function.&#x20;
 
-1. **Kit preparation**
+1. **Kit preparation:**
    * Obtain a Digital Sampling kit from your TAs
    * Check that the contents of your kit match the box label; if not, obtain any replacement parts from a TA
    * Register your LabJack T4 serial number with your TAs
