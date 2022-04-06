@@ -197,7 +197,7 @@ The following terminology is commonly used in DAQ systems, and you should become
 
 ### **Non-Windows Users**
 
-The software for this lab currently only works on Windows, and cannot be made to work for Mac or any other OS this leaves Mac users with the following options that we have tested and verified:
+The software for this lab currently only works on Windows, and cannot be made to work for Mac or any other OS. This leaves Mac users with the following options that we have tested and verified:
 
 * Use the in-built Bootcamp software (Intel chip and Windows license key required)
 * Install and use Parallels ($39.99 student license, Windows license key required)&#x20;
