@@ -305,7 +305,8 @@ Waveforms for identification
      * [ ] the **Frequency Resolution** (= the frequency spacing between two points in the power spectrum)
      * [ ] the highest frequency in the power spectrum (not the frequency with the highest power, but the last frequency at the right side of the plot); Note: the lowest frequency in the power spectrum is always 0 Hz&#x20;
        * _Tip: It may help to toggle from Continuous to Hold to capture one record while you examine the power spectrum_
-   * Repeat the above 3 FINDs for a few longer Record Lengths (always pick an even number of samples)
+       * _Tip: If you have trouble reading off the screen - you can also save the spectrum to a file and read frequency values from it - look at Step 3 in Week 3 on how to use the Save File Options_
+   * Repeat the above 3 FINDs for a few longer Record Lengths (keep the number of samples low, less than 16 and always pick an even number of samples)
    * Set the _Sample Rate_ = 8000 S/s, _Record Length_ = 4 S and repeat the FINDs&#x20;
      * [ ] Calculate the Record Duration for each case, and compare it to the frequency resolution you found for that case; are they related?
 7. **Observe aliasing**
@@ -313,20 +314,21 @@ Waveforms for identification
    * Set the _Sampling Rate_ = 5000 S/s, the _Record Length_ = 5000 S, and toggle the switch to Continuous acquisition
    * Set the _Autoscale_=off switch for the x-axis on the power spectrum, and set the maximum frequency on the power spectrum axis to be 11kHz&#x20;
    * Observe the 3 frequencies of the 3 peaks in the power spectrum
+     * [ ] Are they the same 3 frequencies you saw when you played this track previously?
    * Increase the _Sampling Rate_ to 7500 S/s&#x20;
      * [ ] Observe any changes in the frequencies of the 3 peaks&#x20;
    * Continue increasing the _Sampling Rate_ until you get to at least 25,000 S/s &#x20;
      * [ ] As you do this, observe the locations of the peaks on the frequency axis&#x20;
 8. **Examine noise**
+   * Set the _Sampling Rate_ = 5000 S/s, the _Record Length_ = 5000 S, and toggle the switch to Continuous acquisition&#x20;
    * Play each of the two tracks you identified as sine waves with noise
      * [ ] What type of noise is present?
      * [ ] Estimate the signal-to-noise ratio of the signal for each track. &#x20;
 9. **Explore the implementation of a low pass filter**
    * Play the track containing the sum of three sine waves&#x20;
-   * Set the _Sampling Rate_ = 22 kS/s and _Record Length_ = 1000 S
+   * Set the _Sampling Rate_ = 22,000 S/s and _Record Length_ = 1000 S
    * Set the _Spectrum Display Settings_ = Amplitude-Log&#x20;
    * In the time plot, _Autoscale_ = off for the x-axis and set the maximum on the axis to 0.005 s
-     * _Tip: the number on the axis will show up as 0.01 because the display will round it to 2 decimal places, but the value really is 0.005s_&#x20;
    * Set the _Filter_ = on, select from the pull-down menu _Low Pass,_ select from the next pull-down menu _Butterworth_, __ set _Low Cutoff Frequency_ = 11,000 Hz by typing in the value
    * Paying attention to both the time plot and power spectrum of both filtered and unfiltered signals, keep reducing the cutoff frequency until you obtain a filtered signal that has eliminated the highest frequency sine wave
      * [ ] What cutoff frequency was required to achieve this?
